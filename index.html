@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AIESEC HI ICX セールス管理 v5</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--b:#037EF3;--g:#00C16E;--r:#F85A40;--y:#FFC845;--or:#F48924;--pu:#7552CC;--tl:#0CB9C1;--gr:#CACCD1;--dk:#52565E;--bg:#F3F4F7}
+body{font-family:Lato,-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;color:var(--dk);background:#e8eaee;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.app{height:700px;width:100%;max-width:1000px;display:flex;flex-direction:column;border-radius:12px;border:1px solid var(--gr);background:var(--bg);position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.hdr{background:var(--b);height:46px;padding:0 12px;display:flex;align-items:center;gap:6px;flex-shrink:0}
+.logo{color:#fff;font-weight:900;font-size:15px;letter-spacing:.08em}
+.sep{color:rgba(255,255,255,.3);font-size:18px}
+.htxt{color:rgba(255,255,255,.8);font-size:12px;white-space:nowrap}
+.sw{position:relative;flex:1;max-width:168px;margin-left:4px}
+.si{width:100%;padding:5px 8px 5px 23px;border-radius:6px;border:none;font-size:12px;background:rgba(255,255,255,.2);color:#fff;font-family:inherit}
+.si::placeholder{color:rgba(255,255,255,.5)}
+.si:focus{outline:none;background:rgba(255,255,255,.3)}
+.sic{position:absolute;left:7px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.65);pointer-events:none;font-size:12px}
+.hsel{padding:5px 7px;border-radius:6px;border:none;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;background:rgba(255,255,255,.15);color:#fff;-webkit-appearance:none;appearance:none}
+.hd{width:1px;height:16px;background:rgba(255,255,255,.25);margin:0 1px;flex-shrink:0}
+.hbtn{padding:5px 9px;border-radius:6px;border:none;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;background:rgba(255,255,255,.15);color:#fff;white-space:nowrap}
+.hbtn:hover{background:rgba(255,255,255,.28)}
+.hbp{background:#fff;color:var(--b)}.hbp:hover{background:rgba(255,255,255,.9)}
+.hbai{background:linear-gradient(135deg,rgba(117,82,204,.6),rgba(3,126,243,.5));border:1px solid rgba(255,255,255,.3)}
+.hbadge{background:rgba(255,255,255,.18);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px}
+.body{flex:1;display:flex;overflow:hidden;position:relative}
+.sb{width:138px;background:#fff;border-right:1px solid var(--gr);padding:8px 6px;display:flex;flex-direction:column;flex-shrink:0}
+.sl{font-size:9px;color:var(--gr);letter-spacing:.1em;padding:6px 7px 3px;font-weight:700;text-transform:uppercase}
+.ni{padding:5px 7px;border-radius:6px;font-size:12px;cursor:pointer;color:var(--dk);display:flex;align-items:center;gap:5px;border:none;background:none;width:100%;text-align:left;font-family:inherit}
+.ni.act{background:#E8F4FE;color:var(--b);font-weight:700}
+.ni:hover:not(.act){background:var(--bg)}
+.nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nc{margin-left:auto;font-size:10px;font-weight:700;background:var(--bg);padding:1px 5px;border-radius:10px;min-width:18px;text-align:center}
+.ni.act .nc{background:var(--b);color:#fff}
+.me-box{padding:0 4px;margin-top:2px}
+.me-sel{width:100%;padding:4px 7px;border-radius:6px;border:1px solid var(--gr);font-size:11px;font-family:inherit;color:var(--dk);background:#fff;margin-bottom:4px}
+.me-btn{width:100%;padding:5px;border-radius:6px;border:1px solid var(--gr);background:#fff;color:var(--dk);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
+.me-btn.on{background:var(--b);color:#fff;border-color:var(--b)}
+.kw{background:var(--bg);border-radius:8px;padding:8px;margin-top:auto}
+.kwl{font-size:10px;opacity:.6;margin-bottom:2px}
+.kwv{font-size:20px;font-weight:700}
+.kpb{height:4px;background:var(--gr);border-radius:2px;margin-top:4px;overflow:hidden}
+.kpbf{height:4px;background:var(--g);border-radius:2px;transition:width .3s}
+.mn{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.fnl{display:flex;align-items:center;padding:7px 12px;flex-shrink:0;background:#fff;border-bottom:1px solid var(--gr);gap:2px}
+.fn{text-align:center;padding:0 8px}
+.fn-n{font-size:17px;font-weight:700;line-height:1}
+.fn-l{font-size:9px;opacity:.6;margin-top:1px;white-space:nowrap}
+.fn-p{font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;margin-top:2px;display:inline-block}
+.farr{color:var(--gr);font-size:12px;flex-shrink:0}
+.fndiv{width:1px;height:28px;background:var(--gr);margin:0 6px;flex-shrink:0}
+.alertbar{background:#FFF7E8;border-bottom:1px solid #FFD880;padding:6px 14px;align-items:center;gap:8px;flex-shrink:0;display:none}
+.al-text{font-size:11px;color:#6b5000;flex:1}
+.al-tdybtn{padding:4px 10px;border-radius:6px;border:none;background:var(--or);color:#fff;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
+.al-x{background:none;border:none;cursor:pointer;font-size:12px;color:#6b5000;padding:2px 5px;border-radius:4px;font-family:inherit}
+.al-x:hover{background:#FFE0A3}
+.tlb{padding:7px 12px;display:flex;align-items:center;gap:5px;flex-shrink:0;background:#fff;border-bottom:1px solid var(--gr)}
+.vmtabs{display:flex;gap:2px;margin-right:4px}
+.vmtab{padding:4px 9px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;border:none;color:var(--gr);background:none;font-family:inherit;white-space:nowrap}
+.vmtab.act{color:var(--dk);background:var(--bg)}
+.tabs{display:flex;gap:2px}
+.tab{padding:4px 9px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid var(--gr);color:var(--dk);background:#fff;font-family:inherit;white-space:nowrap}
+.tab.act{background:var(--b);color:#fff;border-color:var(--b)}
+.bkb{padding:4px 8px;border-radius:5px;border:none;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
+.ta{flex:1;overflow:hidden;display:flex;flex-direction:column}
+#tw{flex:1;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{padding:6px 9px;text-align:left;font-weight:700;color:var(--dk);font-size:9px;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--gr);position:sticky;top:0;background:#fff;white-space:nowrap;cursor:pointer;user-select:none}
+th:first-child,th:last-child{cursor:default}
+th.asc::after{content:" ↑";color:var(--b)}
+th.desc::after{content:" ↓";color:var(--b)}
+td{padding:7px 9px;border-bottom:1px solid #EDEEF0;vertical-align:middle}
+tr:hover td{background:#EBF5FE}
+tr.sel td{background:#E8F4FE}
+.cn{font-weight:700;font-size:12px;color:var(--dk)}
+.ci{font-size:10px;color:var(--gr)}
+.cmemo{font-size:10px;opacity:.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px;margin-top:2px}
+.curl{color:var(--b);text-decoration:none;font-size:11px;margin-left:3px}
+.av{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;vertical-align:middle}
+.dots{display:flex;gap:2px}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.kchk{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--gr);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:10px;font-weight:700;color:#fff}
+.kchk.done{background:var(--g);border-color:var(--g)}
+.kchk:not(.done):hover{border-color:var(--b)}
+.cb{width:14px;height:14px;cursor:pointer;accent-color:var(--b)}
+.ft{font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;background:#FFF0E8;color:#8B4000;border:1px solid var(--or);margin-left:3px;vertical-align:middle}
+.ss{border:none;font-size:10px;font-weight:700;padding:2px 6px;border-radius:100px;cursor:pointer;font-family:inherit;-webkit-appearance:none;appearance:none;outline:none}
+.s0{background:#F3F4F7;color:#5a5e66}.s1{background:#EDFAF4;color:#005a2b}.s2{background:#E8F4FE;color:#024fa0}
+.s3{background:#FFFAE0;color:#6b5000}.s4{background:#FEEAE7;color:#8b1f00}.s5{background:#F3F4F7;color:#5a5e66}.s6{background:#EEE8FF;color:#3d1d8f}
+.abtns{display:none;gap:3px;align-items:center}
+tr:hover .abtns{display:flex}
+.ab2{padding:2px 6px;border-radius:4px;border:none;font-size:10px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
+.ab-t{background:#E0F7F9;color:#00525e}.ab-e{background:var(--bg);color:var(--dk)}.ab-d{background:#FEEAE7;color:#8b1f00}
+.wfb{padding:3px 8px;border-radius:100px;border:none;font-size:10px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;background:var(--bg);color:var(--dk)}
+.wfb-tl{background:#E0F7F9;color:#00525e}.wfb-b{background:#E8F4FE;color:#024fa0}
+.wfb-g{background:#EDFAF4;color:#005a2b}.wfb-r{background:#FEEAE7;color:#8b1f00}
+.wfb-or{background:#FFF0E8;color:#8B4000}.wfb-pu{background:#EEE8FF;color:#3d1d8f}
+.wfa{display:flex;gap:3px;flex-wrap:wrap;align-items:center}
+.wf-done{font-size:10px;font-weight:700;color:var(--pu)}
+.wf-none{font-size:10px;color:var(--gr)}
+.kanban{display:flex;gap:9px;padding:11px;align-items:flex-start;min-height:100%}
+.kol{flex:1;min-width:140px;background:var(--bg);border-radius:8px}
+.kol-h{padding:8px 10px;display:flex;align-items:center;justify-content:space-between;border-top:3px solid;background:#fff;border-radius:8px 8px 0 0}
+.kol-ht{font-size:11px;font-weight:700}
+.kol-cnt{font-size:10px;font-weight:700;background:var(--bg);padding:2px 6px;border-radius:10px}
+.kol-body{padding:6px;min-height:40px;transition:background .15s}
+.kol-body.drag-over{background:#D8EDFF;border-radius:0 0 8px 8px;outline:2px dashed var(--b)}
+.kcard{background:#fff;border:1px solid var(--gr);border-radius:8px;padding:9px;margin-bottom:6px;cursor:grab}
+.kcard:hover{border-color:var(--b);background:#F8FDFF}
+.kcard:active{cursor:grabbing;opacity:.8}
+.kc-name{font-weight:700;font-size:11px;color:var(--dk);margin-bottom:4px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kc-meta{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--gr);margin-bottom:5px}
+.kc-act{display:flex;gap:3px;flex-wrap:wrap}
+.kol-empty{text-align:center;padding:14px 8px;font-size:10px;color:var(--gr)}
+.today-wrap{padding:12px;overflow-y:auto;height:100%}
+.t-sect{margin-bottom:14px}
+.t-sh{font-size:11px;font-weight:700;padding:6px 10px;border-radius:7px;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.t-sh-or{background:#FFF0E8;color:#8B4000}
+.t-sh-y{background:#FFFAE0;color:#6b5000}
+.t-sh-b{background:#E8F4FE;color:#024fa0}
+.tcard{background:#fff;border:1px solid var(--gr);border-radius:8px;padding:9px 12px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.tc-info{flex:1;min-width:0}
+.tc-name{font-weight:700;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tc-meta{font-size:10px;color:var(--gr);margin-top:2px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.tc-act{display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap}
+.today-ok{text-align:center;padding:48px 20px;color:var(--g);font-size:13px;font-weight:700}
+.ov{position:absolute;inset:0;background:rgba(0,0,0,.15);z-index:9}
+.pnl{position:absolute;right:0;top:0;bottom:0;width:284px;background:#fff;border-left:1px solid var(--gr);display:flex;flex-direction:column;z-index:10;transform:translateX(284px);transition:transform .2s}
+.pnl.open{transform:translateX(0)}
+.ph{padding:11px 13px;border-bottom:1px solid var(--gr);display:flex;align-items:center;gap:8px;flex-shrink:0;background:var(--b)}
+.ph-ai{background:linear-gradient(135deg,var(--pu),var(--b))}
+.pht{font-size:13px;font-weight:700;color:#fff;flex:1}
+.xb{width:24px;height:24px;border-radius:5px;border:none;background:rgba(255,255,255,.2);cursor:pointer;font-size:12px;color:#fff;font-family:inherit}
+.pb{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:9px}
+.fl{font-size:10px;font-weight:700;opacity:.65;margin-bottom:3px;text-transform:uppercase;letter-spacing:.05em}
+.fi{width:100%;padding:7px 9px;border-radius:6px;border:1px solid var(--gr);font-size:12px;color:var(--dk);font-family:inherit;background:#fff}
+.fi:focus{outline:2px solid var(--b);border-color:transparent}
+.fsel{width:100%;padding:7px 9px;border-radius:6px;border:1px solid var(--gr);font-size:12px;color:var(--dk);font-family:inherit;background:#fff}
+.chi{display:flex;align-items:center;gap:7px;padding:6px 9px;border-radius:6px;border:1px solid var(--gr);cursor:pointer;font-size:11px;margin-bottom:3px;color:var(--dk)}
+.chi.on{border-color:var(--g);background:#EDFAF4;color:#005a2b}
+.chk{width:13px;height:13px;border-radius:3px;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
+.chi.on .chk{background:var(--g);border-color:var(--g);color:#fff}
+.srow{display:flex;justify-content:space-between;margin-top:3px}
+.sbar{height:5px;background:var(--gr);border-radius:3px;margin-top:4px;overflow:hidden}
+.sfil{height:5px;background:var(--g);border-radius:3px;transition:width .3s}
+.pf{padding:10px 12px;border-top:1px solid var(--gr);display:flex;gap:6px;flex-shrink:0}
+.bp{flex:1;padding:9px;border-radius:6px;border:none;background:var(--b);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+.bs{flex:1;padding:9px;border-radius:6px;border:1px solid var(--gr);background:#fff;color:var(--dk);font-size:12px;cursor:pointer;font-family:inherit}
+.bdel{padding:9px;border-radius:6px;border:none;background:#FEEAE7;color:#8b1f00;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+.tbox{padding:10px;background:#F0FFFE;border:1px solid var(--tl);border-radius:7px;font-size:11px;line-height:1.75;color:var(--dk);white-space:pre-wrap;word-break:break-all;max-height:210px;overflow-y:auto;min-height:60px}
+.ai-gen-btn{display:flex;align-items:center;justify-content:center;gap:5px;flex:1;padding:9px;border-radius:7px;border:none;background:linear-gradient(135deg,#7552CC,#037EF3);color:#fff;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
+.ai-gen-btn:hover{opacity:.9}
+.ai-gen-btn:disabled{opacity:.5;cursor:not-allowed}
+.shead{font-size:11px;font-weight:700;color:var(--b);margin-bottom:5px;padding-bottom:4px;border-bottom:1px solid var(--gr)}
+.sstep{padding:8px 10px;background:var(--bg);border-radius:6px;margin-bottom:5px}
+.slbl{font-size:9px;font-weight:700;color:var(--or);margin-bottom:3px;text-transform:uppercase;letter-spacing:.05em}
+.stxt{font-size:11px;line-height:1.7;color:var(--dk)}
+.gi{padding:7px 0;border-bottom:1px solid #EDEEF0}
+.gt{font-weight:700;font-size:12px;color:var(--b)}
+.gd{font-size:11px;opacity:.7;margin-top:2px;line-height:1.6}
+.stat-row{padding:9px 0;border-bottom:1px solid #EDEEF0}
+.tc{position:absolute;bottom:12px;right:12px;z-index:20;display:flex;flex-direction:column;gap:4px;pointer-events:none;align-items:flex-end}
+.toast{background:var(--dk);color:#fff;padding:7px 12px;border-radius:7px;font-size:12px;font-weight:500;opacity:0;transform:translateY(5px);transition:all .2s;display:flex;align-items:center;gap:8px}
+.toast.on{opacity:1;transform:translateY(0)}
+.ubtn{background:rgba(255,255,255,.25);border:none;border-radius:4px;color:#fff;font-size:11px;font-weight:700;cursor:pointer;padding:2px 7px;pointer-events:all;font-family:inherit}
+.empty{text-align:center;padding:36px;color:var(--gr);font-size:12px}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="hdr">
+  <span class="logo">AIESEC</span><span class="sep">|</span>
+  <span class="htxt">ICX セールス管理</span>
+  <div class="sw"><span class="sic">&#9906;</span><input class="si" id="srch" placeholder="企業名で検索 (/)" oninput="doS(this.value)"/></div>
+  <select class="hsel" id="asel" onchange="doA(this.value)">
+    <option value="">全担当</option>
+    <option>なな</option><option>ひなこ</option><option>まひろ</option>
+    <option>たいき</option><option>issei</option><option>りりこ</option><option>yusei</option>
+  </select>
+  <div class="hd"></div>
+  <button class="hbtn hbai" onclick="opn('tpl',null)">✦ AIメルアポ</button>
+  <button class="hbtn" onclick="expCSV()">↓ CSV</button>
+  <button class="hbtn" onclick="document.getElementById('csvf').click()">↑ インポート</button>
+  <input type="file" id="csvf" accept=".csv" style="display:none" onchange="impCSV(this)"/>
+  <button class="hbtn" onclick="opn('script')">テレアポ</button>
+  <button class="hbtn" onclick="opn('gls')">用語集</button>
+  <div class="hd"></div>
+  <button class="hbtn hbp" onclick="opn('add',null)">+ 追加</button>
+  <span class="hbadge">HI 2627</span>
+</div>
+<div class="body">
+  <div class="sb">
+    <div class="sl">管理</div>
+    <button class="ni act" onclick="snav(this,'all')"><span class="nd" style="background:var(--b)"></span>全企業<span class="nc" id="n0"></span></button>
+    <button class="ni" onclick="snav(this,'apo')"><span class="nd" style="background:var(--tl)"></span>アポする<span class="nc" id="n1"></span></button>
+    <button class="ni" onclick="snav(this,'kt')"><span class="nd" style="background:var(--g)"></span>Kintone未<span class="nc" id="n2"></span></button>
+    <button class="ni" onclick="snav(this,'fw')"><span class="nd" style="background:var(--or)"></span>失注フォロー<span class="nc" id="n3"></span></button>
+    <div class="sl" style="margin-top:3px">状況</div>
+    <button class="ni" onclick="snav(this,'pd')"><span class="nd" style="background:var(--y)"></span>返信待ち<span class="nc" id="n4"></span></button>
+    <button class="ni" onclick="snav(this,'wn')"><span class="nd" style="background:var(--pu)"></span>渉外獲得<span class="nc" id="n5"></span></button>
+    <button class="ni" onclick="opn('stats')"><span class="nd" style="background:var(--tl)"></span>担当別集計</button>
+    <button class="ni" onclick="opn('help')"><span class="nd" style="background:var(--gr)"></span>ショートカット</button>
+    <div class="sl" style="margin-top:3px">自分を設定</div>
+    <div class="me-box">
+      <select class="me-sel" id="msel" onchange="setMe(this.value)">
+        <option value="">選択してください</option>
+        <option>なな</option><option>ひなこ</option><option>まひろ</option>
+        <option>たいき</option><option>issei</option><option>りりこ</option><option>yusei</option>
+      </select>
+      <button class="me-btn" id="mybtn" onclick="toggleMe()">自分のみ表示</button>
+    </div>
+    <div style="flex:1"></div>
+    <div class="kw">
+      <div class="kwl">Kintone登録率</div>
+      <div class="kwv" id="krate">0%</div>
+      <div class="kpb"><div class="kpbf" id="kbar" style="width:0%"></div></div>
+    </div>
+  </div>
+  <div class="mn">
+    <div class="fnl">
+      <div class="fn"><div class="fn-n" style="color:var(--b)" id="f0">0</div><div class="fn-l">総企業</div></div>
+      <span class="farr">›</span>
+      <div class="fn"><div class="fn-n" style="color:var(--tl)" id="f1">0</div><div class="fn-l">アポ対象</div><div class="fn-p" style="background:#E8F4FE;color:#024fa0" id="f1p">0%</div></div>
+      <span class="farr">›</span>
+      <div class="fn"><div class="fn-n" style="color:var(--g)" id="f2">0</div><div class="fn-l">アポ実施</div><div class="fn-p" style="background:#EDFAF4;color:#005a2b" id="f2p">0%</div></div>
+      <span class="farr">›</span>
+      <div class="fn"><div class="fn-n" style="color:var(--pu)" id="f3">0</div><div class="fn-l">渉外獲得</div><div class="fn-p" style="background:#EEE8FF;color:#3d1d8f" id="f3p">0%</div></div>
+      <div class="fndiv"></div>
+      <div class="fn"><div class="fn-n" style="color:var(--or)" id="f4">0</div><div class="fn-l">失注フォロー</div></div>
+      <div style="flex:1"></div>
+      <div class="fn" style="text-align:right"><div class="fn-n" style="color:var(--g)" id="f5">0%</div><div class="fn-l">Kintone率</div><div class="kpb" style="width:76px;margin-top:4px"><div class="kpbf" id="fkbar" style="width:0%"></div></div></div>
+    </div>
+    <div id="alertbar" class="alertbar">
+      <span style="color:var(--or)">⚠</span>
+      <span id="alerttext" class="al-text"></span>
+      <button class="al-tdybtn" onclick="setVm('today')">今日のタスクを確認</button>
+      <button class="al-x" onclick="aDismiss()">✕</button>
+    </div>
+    <div class="tlb">
+      <div class="vmtabs">
+        <button class="vmtab act" data-vm="table" onclick="setVm('table')">☰ テーブル</button>
+        <button class="vmtab" data-vm="kanban" onclick="setVm('kanban')">⬛ かんばん</button>
+        <button class="vmtab" data-vm="today" onclick="setVm('today')">★ 今日</button>
+      </div>
+      <div class="hd" style="margin:0 3px"></div>
+      <div id="ftabs" class="tabs">
+        <button class="tab act" onclick="sf('all',this)">全て</button>
+        <button class="tab" onclick="sf('apo',this)">アポする</button>
+        <button class="tab" onclick="sf('kt',this)">Kintone未</button>
+        <button class="tab" onclick="sf('fw',this)">要フォロー</button>
+      </div>
+      <div id="bkbar" style="display:none;margin-left:auto;align-items:center;gap:5px">
+        <span style="font-size:11px;font-weight:700;color:var(--b)" id="bkinfo"></span>
+        <button class="bkb" style="background:#EDFAF4;color:#005a2b" onclick="bulkK()">一括Kintone登録</button>
+        <button class="bkb" style="background:var(--bg);color:var(--dk)" onclick="clrS()">解除</button>
+      </div>
+    </div>
+    <div class="ta"><div id="tw"></div></div>
+  </div>
+  <div id="ov" class="ov" style="display:none" onclick="cls()"></div>
+  <div id="pnl" class="pnl"></div>
+</div>
+<div class="tc" id="tc"></div>
+</div>
+
+<script>
+const AVC={なな:'#037EF3',ひなこ:'#F48924',まひろ:'#F85A40',たいき:'#7552CC',issei:'#0CB9C1',りりこ:'#FFC845',yusei:'#00C16E'};
+const AVT={りりこ:'#52565E'};
+const ST=['未着手','テレアポ済','メルアポ済','返信待ち','失注','テリ被り','渉外獲得'];
+const SC=['s0','s1','s2','s3','s4','s5','s6'];
+const AP=['未判断','アポする','アポしない','テリ被り'];
+const IND=['IT・ソフトウェア','製造業','建設業','商社','コンサルティング','食品・飲食','金融・保険','その他'];
+const AS=['なな','ひなこ','まひろ','たいき','issei','りりこ','yusei'];
+
+let D=[
+  {id:1,name:'カンチェーミ・コーポレーション',ind:'コンサルティング',url:'https://cancemi.jp',asgn:'なな',sc:4,apo:'アポする',st:'渉外獲得',k:1,at:'2026-02-10',fd:null,memo:'経営者がイタリア人、英語OK'},
+  {id:2,name:'株式会社ジラフ',ind:'IT・ソフトウェア',url:'https://jiraffe.co.jp',asgn:'たいき',sc:2,apo:'アポする',st:'メルアポ済',k:1,at:'2026-03-01',fd:null,memo:'電話番号なし'},
+  {id:3,name:'株式会社スギ薬局',ind:'卸売・小売',url:'https://drug-sugi.co.jp',asgn:'まひろ',sc:3,apo:'アポする',st:'渉外獲得',k:1,at:'2026-02-15',fd:null,memo:'受け入れ実績あり'},
+  {id:4,name:'株式会社ミライト・ワン',ind:'IT・ソフトウェア',url:'https://mirait-one.com',asgn:'ひなこ',sc:3,apo:'アポする',st:'返信待ち',k:0,at:'2026-03-20',fd:null,memo:'会社統合済み、確認必要'},
+  {id:5,name:'株式会社大林組',ind:'建設業',url:'https://obayashi.co.jp',asgn:'yusei',sc:3,apo:'アポする',st:'テリ被り',k:0,at:'2026-03-05',fd:null,memo:''},
+  {id:6,name:'竹中工務店',ind:'建設業',url:'https://takenaka.co.jp',asgn:'issei',sc:2,apo:'アポする',st:'テレアポ済',k:1,at:'2026-02-28',fd:null,memo:'海外大学と交流実績'},
+  {id:7,name:'コインチェック株式会社',ind:'金融・保険',url:'https://coincheck.com',asgn:'なな',sc:2,apo:'アポする',st:'返信待ち',k:0,at:'2026-03-25',fd:null,memo:''},
+  {id:8,name:'株式会社NIPPO',ind:'建設業',url:'https://nippo-c.co.jp',asgn:'りりこ',sc:1,apo:'アポしない',st:'失注',k:1,at:'2025-03-10',fd:'2025-03-15',memo:'受け入れ体制なし'},
+  {id:9,name:'NTTコムウェア株式会社',ind:'IT・ソフトウェア',url:'https://nttcom.co.jp',asgn:'まひろ',sc:3,apo:'アポする',st:'テリ被り',k:1,at:'2025-04-01',fd:'2025-04-05',memo:'1年後再アタック推奨'},
+];
+let cf='all',sq='',scol=null,sdir=1,asf='',sel=new Set(),nid=10,dBuf=null,vm='table',alDismissed=false,myName='',dragId=null;
+const isFW=c=>c.fd&&(new Date()-new Date(c.fd))/864e5>=300;
+
+function gl(){
+  let l=[...D];
+  if(cf==='apo')l=l.filter(c=>c.apo==='アポする');
+  else if(cf==='kt')l=l.filter(c=>!c.k&&c.apo==='アポする');
+  else if(cf==='fw')l=l.filter(isFW);
+  else if(cf==='pd')l=l.filter(c=>c.st==='返信待ち');
+  else if(cf==='wn')l=l.filter(c=>c.st==='渉外獲得');
+  if(asf)l=l.filter(c=>c.asgn===asf);
+  if(sq)l=l.filter(c=>c.name.includes(sq)||c.ind.includes(sq));
+  if(scol)l.sort((a,b)=>{const va=a[scol]??'',vb=b[scol]??'';return sdir*(typeof va==='number'?va-vb:String(va).localeCompare(String(vb),'ja'));});
+  return l;
+}
+const thC=col=>scol===col?(sdir===1?'asc':'desc'):'';
+
+function rdr(){
+  if(vm==='table')rdrT();
+  else if(vm==='kanban')rdrK();
+  else if(vm==='today')rdrTD();
+  upd();
+}
+
+function wfH(c){
+  const id=c.id,st=c.st;
+  if(st==='未着手')return '<button class="wfb wfb-tl" onclick="adv('+id+',\'テレアポ済\')">TEL済</button><button class="wfb wfb-tl" onclick="adv('+id+',\'メルアポ済\')">MAIL済</button>';
+  if(st==='テレアポ済'||st==='メルアポ済')return '<button class="wfb wfb-b" onclick="adv('+id+',\'返信待ち\')">返信待ちへ →</button>';
+  if(st==='返信待ち')return '<button class="wfb wfb-g" onclick="adv('+id+',\'渉外獲得\')">✓ 獲得!</button> <button class="wfb wfb-r" onclick="adv('+id+',\'失注\')">失注</button>';
+  if(st==='渉外獲得')return '<span class="wf-done">✓ 完了</span>';
+  if(st==='失注'&&isFW(c))return '<button class="wfb wfb-or" onclick="adv('+id+',\'未着手\')">再アタック</button>';
+  if(st==='失注')return '<span class="wf-none">フォロー待ち</span>';
+  return '<span class="wf-none">-</span>';
+}
+
+function adv(id,ns){const c=D.find(x=>x.id===id);if(!c)return;c.st=ns;if(ns==='失注'&&!c.fd)c.fd=new Date().toISOString().slice(0,10);if(ns==='未着手')c.fd=null;rdr();toast('→ '+ns);}
+
+function rH(c){
+  const fw=isFW(c),avb=AVC[c.asgn]||'#aaa',avt=AVT[c.asgn]||'#fff';
+  const dts=[0,1,2,3,4].map(i=>'<span class="dot" style="background:'+(i<c.sc?'var(--g)':'var(--gr)')+'"></span>').join('');
+  const so=ST.map(v=>'<option'+(c.st===v?' selected':'')+'>'+v+'</option>').join('');
+  return '<tr class="'+(sel.has(c.id)?'sel':'')+'">'+
+    '<td onclick="event.stopPropagation()"><input type="checkbox" class="cb"'+(sel.has(c.id)?' checked':'')+' onchange="togR('+c.id+')"/></td>'+
+    '<td><div class="cn">'+c.name+(fw?'<span class="ft">フォロー</span>':'')+'</div>'+
+    '<div style="display:flex;align-items:center;gap:3px"><span class="ci">'+c.ind+'</span>'+(c.url?'<a class="curl" href="'+c.url+'" target="_blank">↗</a>':'')+'</div>'+
+    (c.memo?'<div class="cmemo">'+c.memo+'</div>':'')+
+    '</td>'+
+    '<td><span class="av" style="background:'+avb+';color:'+avt+'">'+c.asgn.slice(0,2)+'</span> <span style="font-size:11px">'+c.asgn+'</span></td>'+
+    '<td><div class="dots">'+dts+'</div></td>'+
+    '<td onclick="event.stopPropagation()"><div class="wfa">'+wfH(c)+'</div></td>'+
+    '<td onclick="event.stopPropagation()"><select class="ss '+(SC[ST.indexOf(c.st)]||'s0')+'" onchange="chgS('+c.id+',this)">'+so+'</select></td>'+
+    '<td onclick="event.stopPropagation()"><div class="kchk'+(c.k?' done':'')+'" onclick="tkn('+c.id+',this)">'+(c.k?'✓':'')+'</div></td>'+
+    '<td onclick="event.stopPropagation()"><div class="abtns">'+
+      '<button class="ab2 ab-t" onclick="opnTpl('+c.id+')">AIメルアポ</button>'+
+      '<button class="ab2 ab-e" onclick="opn(\'edit\','+c.id+')">編集</button>'+
+      '<button class="ab2 ab-d" onclick="delC('+c.id+')">削除</button>'+
+    '</div></td>'+
+  '</tr>';
+}
+
+function rdrT(){
+  const l=gl(),tw=document.getElementById('tw');
+  const rows=l.length?l.map(rH).join(''):'<tr><td colspan="8" class="empty">該当する企業がありません</td></tr>';
+  tw.innerHTML='<table><thead><tr>'+
+    '<th style="width:26px" onclick="event.stopPropagation()"><input type="checkbox" class="cb" id="ca" onchange="tAll(this)"/></th>'+
+    '<th class="'+thC('name')+'" onclick="srt(\'name\')">企業名</th>'+
+    '<th class="'+thC('asgn')+'" onclick="srt(\'asgn\')">担当</th>'+
+    '<th class="'+thC('sc')+'" onclick="srt(\'sc\')">整合性</th>'+
+    '<th>次のアクション</th><th>ステータス</th>'+
+    '<th style="width:34px">K</th><th style="width:105px">操作</th>'+
+  '</tr></thead><tbody>'+rows+'</tbody></table>';
+}
+
+const KCOLS=[
+  {label:'未対応',color:'var(--tl)',dst:'未着手',f:c=>c.apo==='アポする'&&c.st==='未着手'},
+  {label:'アポ中',color:'var(--b)',dst:'テレアポ済',f:c=>['テレアポ済','メルアポ済'].includes(c.st)},
+  {label:'返信待ち',color:'var(--y)',dst:'返信待ち',f:c=>c.st==='返信待ち'},
+  {label:'渉外獲得',color:'var(--pu)',dst:'渉外獲得',f:c=>c.st==='渉外獲得'},
+  {label:'失注/テリ',color:'var(--gr)',dst:'失注',f:c=>['失注','テリ被り'].includes(c.st)},
+];
+
+function dStart(e,id){dragId=id;e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(id));}
+function dOver(e,el){e.preventDefault();el.classList.add('drag-over');}
+function dLeave(el){el.classList.remove('drag-over');}
+function dDrop(e,dst){
+  e.preventDefault();const el=e.currentTarget;el.classList.remove('drag-over');
+  const id=dragId!==null?dragId:parseInt(e.dataTransfer.getData('text/plain'));
+  const c=D.find(x=>x.id===id);
+  if(c){c.st=dst;if(dst==='失注'&&!c.fd)c.fd=new Date().toISOString().slice(0,10);if(dst==='未着手')c.fd=null;rdr();toast('→ '+dst);}
+  dragId=null;
+}
+
+function rdrK(){
+  const tw=document.getElementById('tw');
+  let html='<div class="kanban">';
+  KCOLS.forEach(col=>{
+    const items=D.filter(col.f).filter(c=>(!asf||c.asgn===asf)&&(!sq||c.name.includes(sq)||c.ind.includes(sq)));
+    html+='<div class="kol"><div class="kol-h" style="border-top-color:'+col.color+'"><span class="kol-ht">'+col.label+'</span><span class="kol-cnt">'+items.length+'</span></div>'+
+      '<div class="kol-body" ondragover="dOver(event,this)" ondragleave="dLeave(this)" ondrop="dDrop(event,\''+col.dst+'\')">';
+    if(!items.length)html+='<div class="kol-empty">ここにドラッグ</div>';
+    else items.forEach(c=>{
+      const fw=isFW(c),avb=AVC[c.asgn]||'#aaa',avt=AVT[c.asgn]||'#fff';
+      const dts=[0,1,2,3,4].map(i=>'<span class="dot" style="background:'+(i<c.sc?'var(--g)':'var(--gr)')+'"></span>').join('');
+      html+='<div class="kcard" draggable="true" ondragstart="dStart(event,'+c.id+')" onclick="opn(\'edit\','+c.id+')" ondragend="dragId=null">'+
+        '<div class="kc-name">'+c.name+(fw?'<span class="ft">フォロー</span>':'')+'</div>'+
+        '<div class="kc-meta"><span class="av" style="background:'+avb+';color:'+avt+';width:16px;height:16px;font-size:8px">'+c.asgn.slice(0,2)+'</span> <span>'+c.asgn+'</span></div>'+
+        '<div class="dots" style="margin-bottom:6px">'+dts+'</div>'+
+        '<div class="kc-act" onclick="event.stopPropagation()">'+wfH(c)+'<button class="wfb wfb-pu" style="font-size:9px;padding:2px 5px" onclick="opnTpl('+c.id+')">AIメルアポ</button></div>'+
+      '</div>';
+    });
+    html+='</div></div>';
+  });
+  html+='</div>';
+  tw.innerHTML=html;
+}
+
+function tcardH(c,type){
+  const avb=AVC[c.asgn]||'#aaa',avt=AVT[c.asgn]||'#fff';
+  let act='';
+  if(type==='fw')act='<button class="wfb wfb-or" onclick="adv('+c.id+',\'未着手\')">再アタック</button><button class="wfb" onclick="opn(\'edit\','+c.id+')">詳細</button>';
+  else if(type==='pd')act='<button class="wfb wfb-g" onclick="adv('+c.id+',\'渉外獲得\')">✓ 獲得!</button><button class="wfb wfb-r" onclick="adv('+c.id+',\'失注\')">失注</button><button class="wfb wfb-pu" onclick="opnTpl('+c.id+')">AIメルアポ</button>';
+  else if(type==='ns')act='<button class="wfb wfb-tl" onclick="adv('+c.id+',\'テレアポ済\')">TEL済</button><button class="wfb wfb-tl" onclick="adv('+c.id+',\'メルアポ済\')">MAIL済</button><button class="wfb wfb-pu" onclick="opnTpl('+c.id+')">AIメルアポ</button>';
+  return '<div class="tcard"><div class="tc-info"><div class="tc-name">'+c.name+'</div><div class="tc-meta"><span class="av" style="background:'+avb+';color:'+avt+';width:16px;height:16px;font-size:8px">'+c.asgn.slice(0,2)+'</span> <span>'+c.asgn+'</span><span>'+c.ind+'</span>'+(c.fd?'<span style="color:var(--or)">失注:'+c.fd.slice(5).replace('-','/')+'</span>':'')+'</div></div><div class="tc-act">'+act+'</div></div>';
+}
+
+function rdrTD(){
+  const tw=document.getElementById('tw');
+  const fw=D.filter(isFW),pd=D.filter(c=>c.st==='返信待ち'),ns=D.filter(c=>c.apo==='アポする'&&c.st==='未着手');
+  if(!fw.length&&!pd.length&&!ns.length){tw.innerHTML='<div class="today-wrap"><div class="today-ok">✓ 今日やることは全て完了！<br><span style="font-size:11px;font-weight:400;opacity:.7;margin-top:6px;display:block">引き続きリスアップも忘れずに</span></div></div>';return;}
+  let html='<div class="today-wrap">';
+  if(fw.length)html+='<div class="t-sect"><div class="t-sh t-sh-or">⚠ 失注フォロー ('+fw.length+'件) — 失注から300日以上経過</div>'+fw.map(c=>tcardH(c,'fw')).join('')+'</div>';
+  if(pd.length)html+='<div class="t-sect"><div class="t-sh t-sh-y">⏳ 返信待ち ('+pd.length+'件) — 渉外獲得か失注に更新しましょう</div>'+pd.map(c=>tcardH(c,'pd')).join('')+'</div>';
+  if(ns.length)html+='<div class="t-sect"><div class="t-sh t-sh-b">▶ 未対応アポ候補 ('+ns.length+'件) — テレアポかメルアポを実施しましょう</div>'+ns.map(c=>tcardH(c,'ns')).join('')+'</div>';
+  html+='</div>';
+  tw.innerHTML=html;
+}
+
+function setVm(mode){
+  vm=mode;document.querySelectorAll('.vmtab').forEach(t=>t.classList.remove('act'));document.querySelector('.vmtab[data-vm="'+mode+'"]').classList.add('act');document.getElementById('ftabs').style.display=mode==='table'?'flex':'none';
+  if(mode!=='table'){cf='all';document.querySelectorAll('.ni').forEach((n,i)=>{n.classList.remove('act');if(i===0)n.classList.add('act');});}
+  rdr();
+}
+
+function upd(){
+  const t=D.length,a=D.filter(c=>c.apo==='アポする').length,k=D.filter(c=>c.k).length;
+  const fw=D.filter(isFW).length,pd=D.filter(c=>c.st==='返信待ち').length,wn=D.filter(c=>c.st==='渉外獲得').length;
+  const cnt=D.filter(c=>['テレアポ済','メルアポ済','返信待ち','渉外獲得'].includes(c.st)).length;
+  const kt=D.filter(c=>!c.k&&c.apo==='アポする').length;
+  [t,a,cnt,wn,fw].forEach((v,i)=>{const e=document.getElementById('f'+i);if(e)e.textContent=v;});
+  const r=t?Math.round(k/t*100):0;
+  ['f5','krate'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=r+'%';});
+  ['fkbar','kbar'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.width=r+'%';});
+  [['f1p',t,a],['f2p',a,cnt],['f3p',cnt,wn]].forEach(([id,x,y])=>{const e=document.getElementById(id);if(e)e.textContent=x?Math.round(y/x*100)+'%':'0%';});
+  [t,a,kt,fw,pd,wn].forEach((v,i)=>{const e=document.getElementById('n'+i);if(e)e.textContent=v;});
+  const n=sel.size;const bk=document.getElementById('bkbar');if(bk)bk.style.display=n?'flex':'none';
+  const bi=document.getElementById('bkinfo');if(bi&&n)bi.textContent=n+'件選択中';
+  if(vm==='table'){const ca=document.getElementById('ca');if(ca){const vl=gl();ca.checked=n>0&&n===vl.length;ca.indeterminate=n>0&&n<vl.length;}}
+  const ns=D.filter(c=>c.apo==='アポする'&&c.st==='未着手').length;
+  const ab=document.getElementById('alertbar');
+  const items=[];if(fw)items.push(fw+'件の失注フォロー');if(pd)items.push(pd+'件の返信待ち');if(ns)items.push(ns+'件の未対応アポ候補');
+  if(items.length&&!alDismissed){ab.style.display='flex';const at=document.getElementById('alerttext');if(at)at.textContent='要アクション: '+items.join(' · ');}
+  else if(!items.length){ab.style.display='none';alDismissed=false;}
+}
+function aDismiss(){alDismissed=true;document.getElementById('alertbar').style.display='none';}
+function setMe(v){myName=v;document.getElementById('mybtn').className='me-btn'+(v?' on':'');}
+function toggleMe(){
+  if(!myName){toast('まずサイドバーで自分の名前を設定してください');return;}
+  asf=asf===myName?'':myName;
+  document.getElementById('asel').value=asf;
+  document.getElementById('mybtn').textContent=asf?'全員を表示':'自分のみ表示';
+  rdr();toast(asf?myName+'のタスクのみ表示':'全担当を表示');
+}
+
+function sf(f,el){cf=f;document.querySelectorAll('#ftabs .tab').forEach(t=>t.classList.remove('act'));el.classList.add('act');rdr();}
+function snav(el,f){
+  cf=f;document.querySelectorAll('.ni').forEach(n=>n.classList.remove('act'));el.classList.add('act');
+  const m={'all':0,'apo':1,'kt':2,'fw':3};
+  document.querySelectorAll('#ftabs .tab').forEach(t=>t.classList.remove('act'));
+  if(m[f]!=null)document.querySelectorAll('#ftabs .tab')[m[f]]?.classList.add('act');
+  if(vm!=='table'){vm='table';document.querySelectorAll('.vmtab').forEach(t=>t.classList.remove('act'));document.querySelector('.vmtab[data-vm="table"]').classList.add('act');document.getElementById('ftabs').style.display='flex';}
+  rdr();
+}
+function doS(v){sq=v;rdr();}
+function doA(v){asf=v;rdr();}
+function srt(c){if(scol===c)sdir=-sdir;else{scol=c;sdir=1;}rdr();}
+function togR(id){sel.has(id)?sel.delete(id):sel.add(id);const l=gl();document.querySelectorAll('#tw tbody tr').forEach((r,i)=>{if(l[i])r.className=sel.has(l[i].id)?'sel':'';});const n=sel.size;const bk=document.getElementById('bkbar');if(bk)bk.style.display=n?'flex':'none';const bi=document.getElementById('bkinfo');if(bi&&n)bi.textContent=n+'件選択中';const ca=document.getElementById('ca');if(ca){ca.checked=n>0&&n===l.length;ca.indeterminate=n>0&&n<l.length;}}
+function tAll(cb){if(cb.checked)gl().forEach(c=>sel.add(c.id));else sel.clear();rdr();}
+function tkn(id,el){const c=D.find(x=>x.id===id);c.k=c.k?0:1;el.className='kchk'+(c.k?' done':'');el.innerHTML=c.k?'✓':'';upd();toast(c.k?'Kintone登録しました':'登録を解除しました');}
+function chgS(id,el){const c=D.find(x=>x.id===id);c.st=el.value;el.className='ss '+(SC[ST.indexOf(el.value)]||'s0');if(c.st==='失注'&&!c.fd)c.fd=new Date().toISOString().slice(0,10);upd();toast('ステータスを更新しました');}
+function bulkK(){const n=sel.size;sel.forEach(id=>{const c=D.find(x=>x.id===id);if(c)c.k=1;});toast(n+'件をKintone登録しました');clrS();}
+function clrS(){sel.clear();rdr();}
+
+function expCSV(){
+  const h=['企業名','業種','URL','担当者','整合性','アポ判断','ステータス','Kintone','登録日','メモ'];
+  const rows=D.map(c=>[c.name,c.ind,c.url||'',c.asgn,c.sc,c.apo,c.st,c.k?'済':'未',c.at,c.memo||'']);
+  const csv='\uFEFF'+[h,...rows].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='ICX_HI_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);toast('CSVをダウンロードしました');
+}
+function impCSV(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{const lines=e.target.result.split('\n').filter(l=>l.trim());let added=0;lines.slice(1).forEach(line=>{const cols=line.split(',').map(c=>c.replace(/^"|"$/g,'').trim());if(cols[0]){D.push({id:nid++,name:cols[0],ind:cols[1]||'その他',url:cols[2]||'',asgn:cols[3]||'なな',sc:parseInt(cols[4])||0,apo:cols[5]||'未判断',st:cols[6]||'未着手',k:cols[7]==='済'?1:0,at:cols[8]||new Date().toISOString().slice(0,10),fd:null,memo:cols[9]||''});added++;}});rdr();toast(added+'件インポートしました');inp.value='';};r.readAsText(f,'UTF-8');}
+
+function delC(id){const idx=D.findIndex(x=>x.id===id);if(idx<0)return;const c=D[idx];D.splice(idx,1);dBuf={c,idx};rdr();const tc=document.getElementById('tc'),t=document.createElement('div');t.className='toast';t.innerHTML=c.name+' を削除 <button class="ubtn">元に戻す</button>';tc.appendChild(t);requestAnimationFrame(()=>requestAnimationFrame(()=>t.classList.add('on')));const tid=setTimeout(()=>{t.classList.remove('on');dBuf=null;setTimeout(()=>t.remove(),220);},5000);t.querySelector('.ubtn').addEventListener('click',()=>{clearTimeout(tid);if(dBuf){D.splice(dBuf.idx,0,dBuf.c);dBuf=null;rdr();toast('削除を元に戻しました');}t.remove();});}
+
+function TPLH(cid){
+  const c=cid?D.find(x=>x.id===cid):null;
+  const n=(c?c.name:'').replace(/"/g,'&quot;');
+  const ind=(c?c.ind:'').replace(/"/g,'&quot;');
+  const memo=(c?c.memo||'':'').replace(/"/g,'&quot;');
+  return '<div class="ph ph-ai"><div class="pht">✦ AIメルアポ作成</div><button class="xb" onclick="cls()">✕</button></div>'+
+    '<div class="pb">'+
+    '<div style="background:linear-gradient(135deg,#F3EEFF,#E8F4FE);border-radius:8px;padding:9px 10px;font-size:11px;color:#3d1d8f;line-height:1.6">✨ 企業情報を入力して「AIで個別最適化」を押すと、業種・特徴に合わせたメルアポ文を自動生成します。</div>'+
+    '<div><div class="fl">企業名</div><input class="fi" id="tco" value="'+n+'" placeholder="株式会社○○" oninput="utpl()"/></div>'+
+    '<div><div class="fl">業種 (AIが参照)</div><input class="fi" id="tind" value="'+ind+'" placeholder="例: 建設業、IT・ソフトウェア"/></div>'+
+    '<div><div class="fl">企業メモ・特徴 (AIが参照)</div><input class="fi" id="tmemo" value="'+memo+'" placeholder="英語対応、海外拠点あり、SDGs推進 等"/></div>'+
+    '<div><div class="fl">送信者名</div><input class="fi" id="tna" value="黒沼春之介" oninput="utpl()"/></div>'+
+    '<div style="display:flex;gap:6px">'+
+    '<button id="ai-btn" class="ai-gen-btn" onclick="genAI()">✦ AIで個別最適化</button>'+
+    '<button onclick="utpl()" style="padding:9px 11px;border-radius:7px;border:1px solid var(--gr);background:#fff;color:var(--dk);font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap">標準テンプレ</button>'+
+    '</div>'+
+    '<div id="tbox" class="tbox"></div>'+
+    '</div>'+
+    '<div class="pf"><button class="bs" onclick="cls()">閉じる</button><button class="bp" onclick="cpTpl()">コピー</button></div>';
+}
+
+function opnTpl(cid){
+  document.getElementById('pnl').innerHTML=TPLH(cid);
+  document.getElementById('ov').style.display='block';
+  document.getElementById('pnl').classList.add('open');
+  utpl();
+}
+
+function utpl(){
+  const co=document.getElementById('tco')?.value||'○○株式会社',na=document.getElementById('tna')?.value||'担当者名',el=document.getElementById('tbox');
+  if(!el)return;
+  el.textContent=co+'\nご担当者様\n\n突然のご連絡失礼いたします。アイセック一橋大学委員会にて活動しております、一橋大学2年の'+na+'と申します。\n\n弊団体では、日本の企業様に1〜2ヶ月ほど海外の学生を受け入れていただく「海外インターンシップ」の運営を行っております。\n\nこの度は、貴社の採用・育成の現状や社内のグローバル化推進についてぜひお伺いしたく、ご連絡させていただきました。\n\nオンラインにて30分ほどお時間をいただけますでしょうか。何卒よろしくお願い申し上げます。\nアイセック一橋大学委員会\n'+na;
+}
+
+async function genAI(){
+  const co=document.getElementById('tco')?.value?.trim()||'○○株式会社';
+  const ind=document.getElementById('tind')?.value?.trim()||'';
+  const memo=document.getElementById('tmemo')?.value?.trim()||'';
+  const na=document.getElementById('tna')?.value?.trim()||'担当者名';
+  const el=document.getElementById('tbox');const btn=document.getElementById('ai-btn');
+  if(!el)return;
+  el.innerHTML='<span style="opacity:.6;font-style:italic">✦ AIが企業情報を分析してメール文を生成中... (5〜10秒)</span>';
+  if(btn){btn.disabled=true;btn.textContent='生成中...';}
+  const prompt='あなたはAIESEC一橋大学委員会のICXメンバー「'+na+'」です。'+co+'（業種: '+(ind||'不明')+'）に海外インターンシップ受け入れをお願いするメルアポメールを書いてください。\n'+(memo?'企業情報: '+memo+'\n':'')+'要件:\n- 件名から「件名: 」で始める\n- '+(ind||'この業界')+'に合わせた具体的な表現で説得力を持たせる\n- AIESECの特徴（無料・1〜2ヶ月・海外学生受け入れ・グローバル採用強化）を自然に織り込む\n- 30分のオンラインMTGを依頼する\n- 全体200〜260字以内\n- '+na+'の署名で締める\n\nメール本文のみ出力し、余計な説明は不要です。';
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:prompt}]})});
+    const d=await res.json();
+    const text=d.content?.[0]?.text;
+    if(text)el.textContent=text;
+    else el.innerHTML='<span style="color:var(--r)">エラーが発生しました。「標準テンプレ」ボタンを使用してください。</span>';
+  }catch(e){
+    el.innerHTML='<span style="color:var(--r)">エラーが発生しました。「標準テンプレ」ボタンを使用してください。</span>';
+  }finally{if(btn){btn.disabled=false;btn.textContent='✦ AIで個別最適化';}}
+}
+
+function cpTpl(){
+  const el=document.getElementById('tbox');
+  const t=el?.textContent||'';
+  if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>toast('コピーしました'));
+  else{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('コピーしました');}
+}
+
+function STATSH(){
+  const members=[...new Set(D.map(c=>c.asgn))].sort();
+  let rows=members.map(m=>{
+    const mc=D.filter(c=>c.asgn===m);
+    const tot=mc.length,apo=mc.filter(c=>c.apo==='アポする').length;
+    const cnt=mc.filter(c=>['テレアポ済','メルアポ済','返信待ち','渉外獲得'].includes(c.st)).length;
+    const wn=mc.filter(c=>c.st==='渉外獲得').length,k=mc.filter(c=>c.k).length;
+    const kpct=tot?Math.round(k/tot*100):0,wpct=apo?Math.round(wn/apo*100):0;
+    const avb=AVC[m]||'#aaa',avt=AVT[m]||'#fff';
+    return '<div class="stat-row">'+
+      '<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">'+
+      '<span class="av" style="background:'+avb+';color:'+avt+'">'+m.slice(0,2)+'</span>'+
+      '<span style="font-weight:700;font-size:13px">'+m+'</span>'+
+      '<span style="margin-left:auto;font-size:10px;color:var(--gr)">'+tot+'件担当</span>'+
+      '</div>'+
+      '<div style="display:flex;gap:5px;font-size:10px;flex-wrap:wrap;margin-bottom:5px">'+
+      '<span style="background:#E8F4FE;color:#024fa0;padding:2px 8px;border-radius:100px;font-weight:700">アポ対象 '+apo+'</span>'+
+      '<span style="background:#EDFAF4;color:#005a2b;padding:2px 8px;border-radius:100px;font-weight:700">アポ実施 '+cnt+'</span>'+
+      '<span style="background:#EEE8FF;color:#3d1d8f;padding:2px 8px;border-radius:100px;font-weight:700">獲得 '+wn+'</span>'+
+      '<span style="background:#F3F4F7;color:#5a5e66;padding:2px 8px;border-radius:100px;font-weight:700">K '+kpct+'%</span>'+
+      '</div>'+
+      '<div class="sbar" style="height:6px"><div class="sfil" style="width:'+wpct+'%;background:var(--pu)"></div></div>'+
+      '<div style="text-align:right;font-size:9px;color:var(--gr);margin-top:2px">渉外獲得率 '+wpct+'%</div>'+
+    '</div>';
+  }).join('');
+  return '<div class="ph"><div class="pht">担当別集計</div><button class="xb" onclick="cls()">✕</button></div>'+
+    '<div class="pb" style="gap:0">'+rows+'</div>'+
+    '<div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';
+}
+
+function SCPH(){return '<div class="ph"><div class="pht">テレアポスクリプト</div><button class="xb" onclick="cls()">✕</button></div><div class="pb"><div class="shead">準備</div><div class="sstep"><div class="stxt">✓ 企業名・担当者名を確認<br>✓ AIESECの概要を30秒で説明できる状態に<br>✓ 提案資料をすぐ送れる準備</div></div><div class="shead">導入 (15秒)</div><div class="sstep"><div class="slbl">切り出し</div><div class="stxt">「○○株式会社の[担当者名]様でいらっしゃいますか？アイセック一橋大学委員会の[名前]と申します。今3分ほどよろしいでしょうか？」</div></div><div class="shead">本題 (30秒)</div><div class="sstep"><div class="slbl">事業説明</div><div class="stxt">「弊団体では、海外の学生を御社に1〜2ヶ月ご紹介する海外インターンシップの運営をしております。採用コストは無料で実費のみです。」</div></div><div class="shead">アポ取り (15秒)</div><div class="sstep"><div class="slbl">クロージング</div><div class="stxt">「ご担当の方に30分ほどお話を聞いていただけますでしょうか？来週以降でご都合の良い日程はございますか？」</div></div><div class="shead">失注時の対応</div><div class="sstep"><div class="slbl">断られた場合</div><div class="stxt">「承知いたしました。もし将来的にご検討いただける場合は、資料だけでもお送りしてよろしいでしょうか？」→ 失注日を記録し1年後に再アタック</div></div></div><div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';}
+
+function GLSH(){const T=[['失注','連絡してみたが断られた状態。失注日から約1年後に再アタック推奨。'],['テリ被り','他のLCが既に同じ企業にアポしていること。Kintone登録で確認できる。'],['渉外獲得','ヒアリング・提案が成立し、受け入れ合意が得られた状態。'],['メルアポ','メールでアポイントメントを取る手法。CVR目安は2.5%。'],['テレアポ','電話でアポを取る手法。レスポンスが早い反面スキルが必要。'],['スクリーニング','企業の受け入れ適性を事前に評価すること。整合性スコアで管理。'],['EP','Exchange Participant。海外からインターンに来る学生。'],['TN','Training National。EPを受け入れる日本企業・団体。'],['Kintone','社内CRM。テリ被り防止と状況管理に活用。'],['CVR','Conversion Rate。メルアポ→ヒアリングの目安は約2.5%。']];
+  return '<div class="ph"><div class="pht">AIESEC ICX 用語集</div><button class="xb" onclick="cls()">✕</button></div><div class="pb">'+T.map(([t,d])=>'<div class="gi"><div class="gt">'+t+'</div><div class="gd">'+d+'</div></div>').join('')+'</div><div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';}
+
+function HELPH(){const S=[['/',  '検索フォーカス'],['Esc','パネルを閉じる'],['T','テーブルビュー'],['K','かんばんビュー'],['D','今日ビュー'],['N','企業を追加'],['M','自分のみ表示/解除']];
+  return '<div class="ph"><div class="pht">キーボードショートカット</div><button class="xb" onclick="cls()">✕</button></div>'+
+    '<div class="pb">'+S.map(([k,d])=>'<div class="gi"><div style="display:flex;align-items:center;gap:10px"><span style="background:var(--bg);padding:3px 10px;border-radius:5px;font-weight:700;font-size:13px;font-family:monospace;border:1px solid var(--gr)">'+k+'</span><span style="font-size:12px">'+d+'</span></div></div>').join('')+'</div>'+
+    '<div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';}
+
+function ADDH(id){
+  const c=id?D.find(x=>x.id===id):null;
+  const checks=['HPが英語対応','海外に工場・拠点あり','CSR・SDGs取り組みあり','外国籍社員・留学生採用','設立3年以上・従業員20名以上'];
+  const cH=checks.map((ch,i)=>'<div class="chi'+(c&&i<c.sc?' on':'')+'" onclick="tck(this)"><span class="chk">'+(c&&i<c.sc?'✓':'')+'</span>'+ch+'</div>').join('');
+  const db=c?'<button class="bdel" onclick="delC('+id+');cls()">削除</button>':'';
+  return '<div class="ph"><div class="pht">'+(c?'企業を編集':'企業を追加')+'</div><button class="xb" onclick="cls()">✕</button></div>'+
+    '<div class="pb">'+
+    '<div><div class="fl">企業名 *</div><input class="fi" id="fn" value="'+(c?c.name||'':'')+'" placeholder="株式会社○○"/></div>'+
+    '<div><div class="fl">URL</div><input class="fi" id="fu" value="'+(c?c.url||'':'')+'" placeholder="https://example.co.jp"/></div>'+
+    '<div><div class="fl">業種</div><select class="fsel" id="fi2">'+IND.map(v=>'<option'+(c&&c.ind===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div>'+
+    '<div><div class="fl">担当者</div><select class="fsel" id="fa2">'+AS.map(v=>'<option'+(c&&c.asgn===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div>'+
+    '<div><div class="fl">スクリーニング軸</div><div id="cl">'+cH+'</div>'+
+    '<div class="srow"><span style="font-size:11px;opacity:.6">整合性スコア</span><span style="font-size:12px;font-weight:700" id="sv">'+(c?c.sc:0)+' / 5</span></div>'+
+    '<div class="sbar"><div class="sfil" id="sf" style="width:'+(c?c.sc/5*100:0)+'%"></div></div></div>'+
+    '<div><div class="fl">アポ判断</div><select class="fsel" id="fap2">'+AP.map(v=>'<option'+(c&&c.apo===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div>'+
+    '<div><div class="fl">ステータス</div><select class="fsel" id="fst2">'+ST.map(v=>'<option'+(c&&c.st===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div>'+
+    '<div><div class="fl">メモ</div><input class="fi" id="fm2" value="'+(c?c.memo||'':'')+'" placeholder="気になる点など"/></div>'+
+    '</div><div class="pf">'+db+'<button class="bs" onclick="cls()">キャンセル</button><button class="bp" onclick="save('+(id||'null')+')">保存</button></div>';
+}
+function save(id){
+  const name=document.getElementById('fn').value.trim();
+  if(!name){document.getElementById('fn').style.outline='2px solid var(--r)';return;}
+  const sc=document.querySelectorAll('#cl .chi.on').length,now=new Date().toISOString().slice(0,10);
+  if(id&&id!=='null'){const c=D.find(x=>x.id===id);if(c){c.name=name;c.ind=document.getElementById('fi2').value;c.url=document.getElementById('fu').value;c.asgn=document.getElementById('fa2').value;c.sc=sc;c.apo=document.getElementById('fap2').value;c.st=document.getElementById('fst2').value;c.memo=document.getElementById('fm2').value;}cls();rdr();toast(name+' を更新しました');}
+  else{D.unshift({id:nid++,name,ind:document.getElementById('fi2').value,url:document.getElementById('fu').value,asgn:document.getElementById('fa2').value,sc,apo:document.getElementById('fap2').value,st:document.getElementById('fst2').value||'未着手',k:0,at:now,fd:null,memo:document.getElementById('fm2').value});cls();rdr();toast(name+' を追加しました');}
+}
+function tck(el){el.classList.toggle('on');const n=document.querySelectorAll('#cl .chi.on').length;document.getElementById('sv').textContent=n+' / 5';document.getElementById('sf').style.width=(n/5*100)+'%';}
+
+function opn(mode,id){
+  const pnl=document.getElementById('pnl');
+  if(mode==='add'||mode==='edit')pnl.innerHTML=ADDH(id);
+  else if(mode==='tpl'){pnl.innerHTML=TPLH(id);document.getElementById('ov').style.display='block';pnl.classList.add('open');utpl();return;}
+  else if(mode==='script')pnl.innerHTML=SCPH();
+  else if(mode==='gls')pnl.innerHTML=GLSH();
+  else if(mode==='stats')pnl.innerHTML=STATSH();
+  else if(mode==='help')pnl.innerHTML=HELPH();
+  document.getElementById('ov').style.display='block';pnl.classList.add('open');
+}
+function cls(){document.getElementById('ov').style.display='none';document.getElementById('pnl').classList.remove('open');}
+
+function toast(msg){const tc=document.getElementById('tc'),t=document.createElement('div');t.className='toast';t.textContent=msg;tc.appendChild(t);requestAnimationFrame(()=>requestAnimationFrame(()=>t.classList.add('on')));setTimeout(()=>{t.classList.remove('on');setTimeout(()=>t.remove(),220);},2500);}
+
+document.addEventListener('keydown',e=>{
+  const inInput=['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName);
+  if(e.key==='Escape'){cls();return;}
+  if(e.key==='/'&&!inInput){e.preventDefault();document.getElementById('srch').focus();return;}
+  if(inInput)return;
+  if(e.key==='t'||e.key==='T')setVm('table');
+  if(e.key==='k'||e.key==='K')setVm('kanban');
+  if(e.key==='d'||e.key==='D')setVm('today');
+  if(e.key==='n'||e.key==='N'){e.preventDefault();opn('add',null);}
+  if(e.key==='m'||e.key==='M')toggleMe();
+});
+rdr();
+</script>
+</body>
+</html>
