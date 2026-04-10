@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AIESEC HI ICX セールス管理 v5</title>
+<title>AIESEC HI ICX セールス管理 </title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--b:#037EF3;--g:#00C16E;--r:#F85A40;--y:#FFC845;--or:#F48924;--pu:#7552CC;--tl:#0CB9C1;--gr:#CACCD1;--dk:#52565E;--bg:#F3F4F7}
 body{font-family:Lato,-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;color:var(--dk);background:#e8eaee;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
-.app{height:700px;width:100%;max-width:1000px;display:flex;flex-direction:column;border-radius:12px;border:1px solid var(--gr);background:var(--bg);position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.app{height:700px;width:100%;max-width:1040px;display:flex;flex-direction:column;border-radius:12px;border:1px solid var(--gr);background:var(--bg);position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.12)}
 .hdr{background:var(--b);height:46px;padding:0 12px;display:flex;align-items:center;gap:6px;flex-shrink:0}
 .logo{color:#fff;font-weight:900;font-size:15px;letter-spacing:.08em}
 .sep{color:rgba(255,255,255,.3);font-size:18px}
@@ -39,8 +39,7 @@ body{font-family:Lato,-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px
 .me-btn{width:100%;padding:5px;border-radius:6px;border:1px solid var(--gr);background:#fff;color:var(--dk);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
 .me-btn.on{background:var(--b);color:#fff;border-color:var(--b)}
 .kw{background:var(--bg);border-radius:8px;padding:8px;margin-top:auto}
-.kwl{font-size:10px;opacity:.6;margin-bottom:2px}
-.kwv{font-size:20px;font-weight:700}
+.kwl{font-size:10px;opacity:.6;margin-bottom:2px}.kwv{font-size:20px;font-weight:700}
 .kpb{height:4px;background:var(--gr);border-radius:2px;margin-top:4px;overflow:hidden}
 .kpbf{height:4px;background:var(--g);border-radius:2px;transition:width .3s}
 .mn{flex:1;display:flex;flex-direction:column;overflow:hidden}
@@ -69,21 +68,17 @@ body{font-family:Lato,-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px
 table{width:100%;border-collapse:collapse;font-size:12px}
 th{padding:6px 9px;text-align:left;font-weight:700;color:var(--dk);font-size:9px;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--gr);position:sticky;top:0;background:#fff;white-space:nowrap;cursor:pointer;user-select:none}
 th:first-child,th:last-child{cursor:default}
-th.asc::after{content:" ↑";color:var(--b)}
-th.desc::after{content:" ↓";color:var(--b)}
+th.asc::after{content:" ↑";color:var(--b)}th.desc::after{content:" ↓";color:var(--b)}
 td{padding:7px 9px;border-bottom:1px solid #EDEEF0;vertical-align:middle}
-tr:hover td{background:#EBF5FE}
-tr.sel td{background:#E8F4FE}
+tr:hover td{background:#EBF5FE}tr.sel td{background:#E8F4FE}
 .cn{font-weight:700;font-size:12px;color:var(--dk)}
 .ci{font-size:10px;color:var(--gr)}
 .cmemo{font-size:10px;opacity:.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px;margin-top:2px}
 .curl{color:var(--b);text-decoration:none;font-size:11px;margin-left:3px}
 .av{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;vertical-align:middle}
-.dots{display:flex;gap:2px}
-.dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.dots{display:flex;gap:2px}.dot{width:7px;height:7px;border-radius:50%;display:inline-block}
 .kchk{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--gr);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:10px;font-weight:700;color:#fff}
-.kchk.done{background:var(--g);border-color:var(--g)}
-.kchk:not(.done):hover{border-color:var(--b)}
+.kchk.done{background:var(--g);border-color:var(--g)}.kchk:not(.done):hover{border-color:var(--b)}
 .cb{width:14px;height:14px;cursor:pointer;accent-color:var(--b)}
 .ft{font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;background:#FFF0E8;color:#8B4000;border:1px solid var(--or);margin-left:3px;vertical-align:middle}
 .ss{border:none;font-size:10px;font-weight:700;padding:2px 6px;border-radius:100px;cursor:pointer;font-family:inherit;-webkit-appearance:none;appearance:none;outline:none}
@@ -98,28 +93,22 @@ tr:hover .abtns{display:flex}
 .wfb-g{background:#EDFAF4;color:#005a2b}.wfb-r{background:#FEEAE7;color:#8b1f00}
 .wfb-or{background:#FFF0E8;color:#8B4000}.wfb-pu{background:#EEE8FF;color:#3d1d8f}
 .wfa{display:flex;gap:3px;flex-wrap:wrap;align-items:center}
-.wf-done{font-size:10px;font-weight:700;color:var(--pu)}
-.wf-none{font-size:10px;color:var(--gr)}
+.wf-done{font-size:10px;font-weight:700;color:var(--pu)}.wf-none{font-size:10px;color:var(--gr)}
 .kanban{display:flex;gap:9px;padding:11px;align-items:flex-start;min-height:100%}
 .kol{flex:1;min-width:140px;background:var(--bg);border-radius:8px}
 .kol-h{padding:8px 10px;display:flex;align-items:center;justify-content:space-between;border-top:3px solid;background:#fff;border-radius:8px 8px 0 0}
-.kol-ht{font-size:11px;font-weight:700}
-.kol-cnt{font-size:10px;font-weight:700;background:var(--bg);padding:2px 6px;border-radius:10px}
+.kol-ht{font-size:11px;font-weight:700}.kol-cnt{font-size:10px;font-weight:700;background:var(--bg);padding:2px 6px;border-radius:10px}
 .kol-body{padding:6px;min-height:40px;transition:background .15s}
 .kol-body.drag-over{background:#D8EDFF;border-radius:0 0 8px 8px;outline:2px dashed var(--b)}
 .kcard{background:#fff;border:1px solid var(--gr);border-radius:8px;padding:9px;margin-bottom:6px;cursor:grab}
-.kcard:hover{border-color:var(--b);background:#F8FDFF}
-.kcard:active{cursor:grabbing;opacity:.8}
+.kcard:hover{border-color:var(--b);background:#F8FDFF}.kcard:active{cursor:grabbing;opacity:.8}
 .kc-name{font-weight:700;font-size:11px;color:var(--dk);margin-bottom:4px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .kc-meta{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--gr);margin-bottom:5px}
-.kc-act{display:flex;gap:3px;flex-wrap:wrap}
-.kol-empty{text-align:center;padding:14px 8px;font-size:10px;color:var(--gr)}
+.kc-act{display:flex;gap:3px;flex-wrap:wrap}.kol-empty{text-align:center;padding:14px 8px;font-size:10px;color:var(--gr)}
 .today-wrap{padding:12px;overflow-y:auto;height:100%}
 .t-sect{margin-bottom:14px}
 .t-sh{font-size:11px;font-weight:700;padding:6px 10px;border-radius:7px;margin-bottom:7px;display:flex;align-items:center;gap:5px}
-.t-sh-or{background:#FFF0E8;color:#8B4000}
-.t-sh-y{background:#FFFAE0;color:#6b5000}
-.t-sh-b{background:#E8F4FE;color:#024fa0}
+.t-sh-or{background:#FFF0E8;color:#8B4000}.t-sh-y{background:#FFFAE0;color:#6b5000}.t-sh-b{background:#E8F4FE;color:#024fa0}
 .tcard{background:#fff;border:1px solid var(--gr);border-radius:8px;padding:9px 12px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
 .tc-info{flex:1;min-width:0}
 .tc-name{font-weight:700;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -127,10 +116,11 @@ tr:hover .abtns{display:flex}
 .tc-act{display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap}
 .today-ok{text-align:center;padding:48px 20px;color:var(--g);font-size:13px;font-weight:700}
 .ov{position:absolute;inset:0;background:rgba(0,0,0,.15);z-index:9}
-.pnl{position:absolute;right:0;top:0;bottom:0;width:284px;background:#fff;border-left:1px solid var(--gr);display:flex;flex-direction:column;z-index:10;transform:translateX(284px);transition:transform .2s}
+.pnl{position:absolute;right:0;top:0;bottom:0;width:290px;background:#fff;border-left:1px solid var(--gr);display:flex;flex-direction:column;z-index:10;transform:translateX(290px);transition:transform .2s}
 .pnl.open{transform:translateX(0)}
 .ph{padding:11px 13px;border-bottom:1px solid var(--gr);display:flex;align-items:center;gap:8px;flex-shrink:0;background:var(--b)}
 .ph-ai{background:linear-gradient(135deg,var(--pu),var(--b))}
+.ph-set{background:var(--dk)}
 .pht{font-size:13px;font-weight:700;color:#fff;flex:1}
 .xb{width:24px;height:24px;border-radius:5px;border:none;background:rgba(255,255,255,.2);cursor:pointer;font-size:12px;color:#fff;font-family:inherit}
 .pb{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:9px}
@@ -151,16 +141,21 @@ tr:hover .abtns{display:flex}
 .bdel{padding:9px;border-radius:6px;border:none;background:#FEEAE7;color:#8b1f00;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
 .tbox{padding:10px;background:#F0FFFE;border:1px solid var(--tl);border-radius:7px;font-size:11px;line-height:1.75;color:var(--dk);white-space:pre-wrap;word-break:break-all;max-height:210px;overflow-y:auto;min-height:60px}
 .ai-gen-btn{display:flex;align-items:center;justify-content:center;gap:5px;flex:1;padding:9px;border-radius:7px;border:none;background:linear-gradient(135deg,#7552CC,#037EF3);color:#fff;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
-.ai-gen-btn:hover{opacity:.9}
-.ai-gen-btn:disabled{opacity:.5;cursor:not-allowed}
+.ai-gen-btn:hover{opacity:.9}.ai-gen-btn:disabled{opacity:.5;cursor:not-allowed}
 .shead{font-size:11px;font-weight:700;color:var(--b);margin-bottom:5px;padding-bottom:4px;border-bottom:1px solid var(--gr)}
-.sstep{padding:8px 10px;background:var(--bg);border-radius:6px;margin-bottom:5px}
-.slbl{font-size:9px;font-weight:700;color:var(--or);margin-bottom:3px;text-transform:uppercase;letter-spacing:.05em}
-.stxt{font-size:11px;line-height:1.7;color:var(--dk)}
 .gi{padding:7px 0;border-bottom:1px solid #EDEEF0}
 .gt{font-weight:700;font-size:12px;color:var(--b)}
 .gd{font-size:11px;opacity:.7;margin-top:2px;line-height:1.6}
 .stat-row{padding:9px 0;border-bottom:1px solid #EDEEF0}
+/* Settings */
+.stab-bar{display:flex;border-bottom:1px solid var(--gr);background:#F7F8FA;flex-shrink:0}
+.stab{flex:1;padding:9px 6px;border:none;background:none;cursor:pointer;font-size:11px;font-weight:700;color:var(--gr);font-family:inherit;border-bottom:3px solid transparent;transition:all .15s}
+.stab.act{color:var(--b);border-bottom-color:var(--b);background:#fff}
+.stab:hover:not(.act){color:var(--dk)}
+.asgn-row{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--gr);border-radius:8px;background:#fff;margin-bottom:5px}
+.asgn-row:hover{border-color:var(--b)}
+.color-swatch{width:22px;height:22px;border-radius:50%;cursor:pointer;flex-shrink:0;border:2px solid transparent;transition:border .1s}
+/* Toast */
 .tc{position:absolute;bottom:12px;right:12px;z-index:20;display:flex;flex-direction:column;gap:4px;pointer-events:none;align-items:flex-end}
 .toast{background:var(--dk);color:#fff;padding:7px 12px;border-radius:7px;font-size:12px;font-weight:500;opacity:0;transform:translateY(5px);transition:all .2s;display:flex;align-items:center;gap:8px}
 .toast.on{opacity:1;transform:translateY(0)}
@@ -174,15 +169,11 @@ tr:hover .abtns{display:flex}
   <span class="logo">AIESEC</span><span class="sep">|</span>
   <span class="htxt">ICX セールス管理</span>
   <div class="sw"><span class="sic">&#9906;</span><input class="si" id="srch" placeholder="企業名で検索 (/)" oninput="doS(this.value)"/></div>
-  <select class="hsel" id="asel" onchange="doA(this.value)">
-    <option value="">全担当</option>
-    <option>なな</option><option>ひなこ</option><option>まひろ</option>
-    <option>たいき</option><option>issei</option><option>りりこ</option><option>yusei</option>
-  </select>
+  <select class="hsel" id="asel" onchange="doA(this.value)"></select>
   <div class="hd"></div>
-  <button class="hbtn hbai" onclick="opn('tpl',null)">✦ AIメルアポ</button>
-  <button class="hbtn" onclick="expCSV()">↓ CSV</button>
-  <button class="hbtn" onclick="document.getElementById('csvf').click()">↑ インポート</button>
+  <button class="hbtn hbai" onclick="opn('tpl',null)">AIメルアポ</button>
+  <button class="hbtn" onclick="expCSV()">CSV出力</button>
+  <button class="hbtn" onclick="document.getElementById('csvf').click()">インポート</button>
   <input type="file" id="csvf" accept=".csv" style="display:none" onchange="impCSV(this)"/>
   <button class="hbtn" onclick="opn('script')">テレアポ</button>
   <button class="hbtn" onclick="opn('gls')">用語集</button>
@@ -200,15 +191,13 @@ tr:hover .abtns{display:flex}
     <div class="sl" style="margin-top:3px">状況</div>
     <button class="ni" onclick="snav(this,'pd')"><span class="nd" style="background:var(--y)"></span>返信待ち<span class="nc" id="n4"></span></button>
     <button class="ni" onclick="snav(this,'wn')"><span class="nd" style="background:var(--pu)"></span>渉外獲得<span class="nc" id="n5"></span></button>
+    <div class="sl" style="margin-top:3px">ツール</div>
     <button class="ni" onclick="opn('stats')"><span class="nd" style="background:var(--tl)"></span>担当別集計</button>
+    <button class="ni" onclick="opn('settings',0)"><span class="nd" style="background:var(--or)"></span>設定</button>
     <button class="ni" onclick="opn('help')"><span class="nd" style="background:var(--gr)"></span>ショートカット</button>
     <div class="sl" style="margin-top:3px">自分を設定</div>
     <div class="me-box">
-      <select class="me-sel" id="msel" onchange="setMe(this.value)">
-        <option value="">選択してください</option>
-        <option>なな</option><option>ひなこ</option><option>まひろ</option>
-        <option>たいき</option><option>issei</option><option>りりこ</option><option>yusei</option>
-      </select>
+      <select class="me-sel" id="msel" onchange="setMe(this.value)"></select>
       <button class="me-btn" id="mybtn" onclick="toggleMe()">自分のみ表示</button>
     </div>
     <div style="flex:1"></div>
@@ -233,16 +222,16 @@ tr:hover .abtns{display:flex}
       <div class="fn" style="text-align:right"><div class="fn-n" style="color:var(--g)" id="f5">0%</div><div class="fn-l">Kintone率</div><div class="kpb" style="width:76px;margin-top:4px"><div class="kpbf" id="fkbar" style="width:0%"></div></div></div>
     </div>
     <div id="alertbar" class="alertbar">
-      <span style="color:var(--or)">⚠</span>
+      
       <span id="alerttext" class="al-text"></span>
       <button class="al-tdybtn" onclick="setVm('today')">今日のタスクを確認</button>
-      <button class="al-x" onclick="aDismiss()">✕</button>
+      <button class="al-x" onclick="aDismiss()">×</button>
     </div>
     <div class="tlb">
       <div class="vmtabs">
-        <button class="vmtab act" data-vm="table" onclick="setVm('table')">☰ テーブル</button>
-        <button class="vmtab" data-vm="kanban" onclick="setVm('kanban')">⬛ かんばん</button>
-        <button class="vmtab" data-vm="today" onclick="setVm('today')">★ 今日</button>
+        <button class="vmtab act" data-vm="table" onclick="setVm('table')">テーブル</button>
+        <button class="vmtab" data-vm="kanban" onclick="setVm('kanban')">かんばん</button>
+        <button class="vmtab" data-vm="today" onclick="setVm('today')">今日</button>
       </div>
       <div class="hd" style="margin:0 3px"></div>
       <div id="ftabs" class="tabs">
@@ -266,13 +255,16 @@ tr:hover .abtns{display:flex}
 </div>
 
 <script>
-const AVC={なな:'#037EF3',ひなこ:'#F48924',まひろ:'#F85A40',たいき:'#7552CC',issei:'#0CB9C1',りりこ:'#FFC845',yusei:'#00C16E'};
-const AVT={りりこ:'#52565E'};
+const COLOR_POOL=['#037EF3','#F48924','#F85A40','#7552CC','#0CB9C1','#FFC845','#00C16E','#FF6B9D','#4ECDC4','#FFB830','#9B59B6','#E74C3C'];
+const DEF_ASGN=[{name:'なな',color:'#037EF3',tc:'#fff'},{name:'ひなこ',color:'#F48924',tc:'#fff'},{name:'まひろ',color:'#F85A40',tc:'#fff'},{name:'たいき',color:'#7552CC',tc:'#fff'},{name:'issei',color:'#0CB9C1',tc:'#fff'},{name:'りりこ',color:'#FFC845',tc:'#52565E'},{name:'yusei',color:'#00C16E',tc:'#fff'}];
+const DEF_MAIL=`{company}\nご担当者様\n\n突然のご連絡失礼いたします。アイセック一橋大学委員会にて活動しております、一橋大学2年の{sender}と申します。\n\n弊団体では、日本の企業様に1〜2ヶ月ほど海外の学生を受け入れていただく「海外インターンシップ」の運営を行っております。\n\nこの度は、貴社の採用・育成の現状や社内のグローバル化推進についてぜひお伺いしたく、ご連絡させていただきました。\n\nオンラインにて30分ほどお時間をいただけますでしょうか。ご都合の良い日程をお知らせいただけますと幸いです。\n\n何卒よろしくお願い申し上げます。\nアイセック一橋大学委員会\n{sender}`;
+const DEF_TEL=`【準備】\n□ 企業名・担当者名を確認\n□ AIESECの概要を30秒で説明できる状態に\n□ 提案資料をすぐ送れる準備\n\n【導入 (15秒)】\n「○○株式会社の[担当者名]様でいらっしゃいますか？アイセック一橋大学委員会の[名前]と申します。今3分ほどよろしいでしょうか？」\n\n【本題 (30秒)】\n「弊団体では、海外の学生を御社に1〜2ヶ月ご紹介する海外インターンシップの運営をしております。採用コストは無料で実費のみです。」\n\n【アポ取り (15秒)】\n「ご担当の方に30分ほどお話を聞いていただけますでしょうか？来週以降でご都合の良い日程はございますか？」\n\n【失注時の対応】\n「承知いたしました。もし将来的にご検討いただける場合は、資料だけでもお送りしてよろしいでしょうか？」\n→ 失注日を記録し、1年後に再アタック`;
+
+let assignees=DEF_ASGN.map(a=>({...a})),mailTpl=DEF_MAIL,telScript=DEF_TEL,selColor=COLOR_POOL[0];
 const ST=['未着手','テレアポ済','メルアポ済','返信待ち','失注','テリ被り','渉外獲得'];
 const SC=['s0','s1','s2','s3','s4','s5','s6'];
 const AP=['未判断','アポする','アポしない','テリ被り'];
 const IND=['IT・ソフトウェア','製造業','建設業','商社','コンサルティング','食品・飲食','金融・保険','その他'];
-const AS=['なな','ひなこ','まひろ','たいき','issei','りりこ','yusei'];
 
 let D=[
   {id:1,name:'カンチェーミ・コーポレーション',ind:'コンサルティング',url:'https://cancemi.jp',asgn:'なな',sc:4,apo:'アポする',st:'渉外獲得',k:1,at:'2026-02-10',fd:null,memo:'経営者がイタリア人、英語OK'},
@@ -288,145 +280,144 @@ let D=[
 let cf='all',sq='',scol=null,sdir=1,asf='',sel=new Set(),nid=10,dBuf=null,vm='table',alDismissed=false,myName='',dragId=null;
 const isFW=c=>c.fd&&(new Date()-new Date(c.fd))/864e5>=300;
 
+function saveS(){try{localStorage.setItem('icx_asgn',JSON.stringify(assignees));localStorage.setItem('icx_mail',mailTpl);localStorage.setItem('icx_tel',telScript);}catch(e){}}
+function loadS(){try{const a=localStorage.getItem('icx_asgn');if(a)assignees=JSON.parse(a);const m=localStorage.getItem('icx_mail');if(m)mailTpl=m;const t=localStorage.getItem('icx_tel');if(t)telScript=t;}catch(e){}}
+function getAVC(n){return assignees.find(a=>a.name===n)?.color||'#aaa';}
+function getAVT(n){return assignees.find(a=>a.name===n)?.tc||'#fff';}
+function escH(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function buildSels(){
+  const a0='<option value="">全担当</option>'+assignees.map(a=>'<option>'+a.name+'</option>').join('');
+  const sl=document.getElementById('asel');if(sl){const v=sl.value;sl.innerHTML=a0;if(assignees.find(a=>a.name===v))sl.value=v;}
+  const ml=document.getElementById('msel');if(ml){const v=ml.value;ml.innerHTML='<option value="">選択してください</option>'+assignees.map(a=>'<option>'+a.name+'</option>').join('');if(assignees.find(a=>a.name===v))ml.value=v;}
+}
+
+// ===== 設定パネル =====
+function SETTINGSH(t=0){
+  const bar='<div class="stab-bar">'+['担当者管理','メルアポ','テレアポ'].map((l,i)=>'<button class="stab'+(i===t?' act':'')+'" onclick="stab(this,'+i+')">'+l+'</button>').join('')+'</div>';
+  const tabs=[asgnTabH(),mailTabH(),telTabH()];
+  return '<div class="ph ph-set"><div class="pht">設定</div><button class="xb" onclick="cls()">×</button></div>'+bar+tabs.map((c,i)=>'<div id="st'+i+'" style="flex:1;overflow-y:auto;padding:12px;display:'+(i===t?'flex':'none')+';flex-direction:column;gap:8px">'+c+'</div>').join('')+'<div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';
+}
+function stab(el,i){document.querySelectorAll('.stab').forEach(t=>t.classList.remove('act'));el.classList.add('act');[0,1,2].forEach(j=>{const e=document.getElementById('st'+j);if(e)e.style.display=j===i?'flex':'none';});}
+
+function asgnTabH(){
+  const list=assignees.map((a,i)=>'<div class="asgn-row"><div style="width:22px;height:22px;border-radius:50%;background:'+a.color+';flex-shrink:0;border:1px solid rgba(0,0,0,.1)"></div><span style="font-weight:700;flex:1;font-size:13px">'+a.name+'</span>'+(assignees.length>1?'<button onclick="delAsgn('+i+')" style="padding:2px 8px;border-radius:4px;border:none;background:#FEEAE7;color:#8b1f00;font-size:10px;font-weight:700;cursor:pointer;font-family:inherit">削除</button>':'')+'</div>').join('');
+  const cp=COLOR_POOL.map(c=>'<div class="color-swatch" style="background:'+c+';border-color:'+(c===selColor?'#333':'transparent')+'" onclick="pickColor(this,\''+c+'\')"></div>').join('');
+  return list+'<div style="margin-top:4px;padding:10px;background:var(--bg);border-radius:8px;display:flex;flex-direction:column;gap:7px"><div class="fl" style="margin:0">担当者を追加</div><input id="na-inp" class="fi" placeholder="名前を入力 (例: りな)"/><div class="fl" style="margin:0">カラーを選択</div><div style="display:flex;gap:5px;flex-wrap:wrap" id="cp">'+cp+'</div><button onclick="addAsgn()" style="padding:8px;border-radius:7px;border:none;background:var(--b);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">+ 追加する</button></div>';
+}
+function mailTabH(){
+  return '<div style="font-size:10px;color:var(--gr);line-height:1.6;padding:6px 8px;background:var(--bg);border-radius:6px"><b>{company}</b> = 企業名 &nbsp;|&nbsp; <b>{sender}</b> = 送信者名</div><textarea id="m-edit" style="flex:1;min-height:220px;padding:9px;border-radius:7px;border:1px solid var(--gr);font-size:11px;line-height:1.75;color:var(--dk);font-family:inherit;resize:vertical">'+escH(mailTpl)+'</textarea><div style="display:flex;gap:5px"><button onclick="saveM()" style="flex:1;padding:8px;border-radius:6px;border:none;background:var(--b);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">保存</button><button onclick="resetM()" style="padding:8px 12px;border-radius:6px;border:1px solid var(--gr);background:#fff;color:var(--dk);font-size:11px;cursor:pointer;font-family:inherit">リセット</button></div>';
+}
+function telTabH(){
+  return '<div style="font-size:10px;color:var(--gr);line-height:1.6;padding:6px 8px;background:var(--bg);border-radius:6px">【見出し】や □ チェックリスト形式で書くと表示が見やすくなります</div><textarea id="t-edit" style="flex:1;min-height:260px;padding:9px;border-radius:7px;border:1px solid var(--gr);font-size:11px;line-height:1.75;color:var(--dk);font-family:inherit;resize:vertical">'+escH(telScript)+'</textarea><div style="display:flex;gap:5px"><button onclick="saveT()" style="flex:1;padding:8px;border-radius:6px;border:none;background:var(--b);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">保存</button><button onclick="resetT()" style="padding:8px 12px;border-radius:6px;border:1px solid var(--gr);background:#fff;color:var(--dk);font-size:11px;cursor:pointer;font-family:inherit">リセット</button></div>';
+}
+function pickColor(el,c){selColor=c;document.querySelectorAll('#cp .color-swatch').forEach(d=>{d.style.borderColor=d.style.background===c?'#333':'transparent';});}
+function addAsgn(){
+  const name=document.getElementById('na-inp')?.value?.trim();
+  if(!name){toast('名前を入力してください');return;}
+  if(assignees.find(a=>a.name===name)){toast('同じ名前が既に存在します');return;}
+  const lc=h=>{const r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return(r*299+g*587+b*114)/1000>128;};
+  assignees.push({name,color:selColor,tc:lc(selColor)?'#52565E':'#fff'});
+  saveS();buildSels();document.getElementById('pnl').innerHTML=SETTINGSH(0);toast(name+' を追加しました');
+}
+function delAsgn(i){
+  if(assignees.length<=1){toast('最低1人必要です');return;}
+  const name=assignees[i].name;assignees.splice(i,1);saveS();buildSels();
+  if(asf===name){asf='';document.getElementById('asel').value='';}
+  if(myName===name){myName='';document.getElementById('msel').value='';document.getElementById('mybtn').className='me-btn';}
+  document.getElementById('pnl').innerHTML=SETTINGSH(0);toast(name+' を削除しました');rdr();
+}
+function saveM(){const v=document.getElementById('m-edit')?.value;if(v!=null){mailTpl=v;saveS();toast('メルアポテンプレートを保存しました');}}
+function resetM(){mailTpl=DEF_MAIL;saveS();const e=document.getElementById('m-edit');if(e)e.value=mailTpl;toast('リセットしました');}
+function saveT(){const v=document.getElementById('t-edit')?.value;if(v!=null){telScript=v;saveS();toast('テレアポスクリプトを保存しました');}}
+function resetT(){telScript=DEF_TEL;saveS();const e=document.getElementById('t-edit');if(e)e.value=telScript;toast('リセットしました');}
+
+// ===== メインロジック =====
 function gl(){
   let l=[...D];
-  if(cf==='apo')l=l.filter(c=>c.apo==='アポする');
-  else if(cf==='kt')l=l.filter(c=>!c.k&&c.apo==='アポする');
-  else if(cf==='fw')l=l.filter(isFW);
-  else if(cf==='pd')l=l.filter(c=>c.st==='返信待ち');
-  else if(cf==='wn')l=l.filter(c=>c.st==='渉外獲得');
-  if(asf)l=l.filter(c=>c.asgn===asf);
-  if(sq)l=l.filter(c=>c.name.includes(sq)||c.ind.includes(sq));
+  if(cf==='apo')l=l.filter(c=>c.apo==='アポする');else if(cf==='kt')l=l.filter(c=>!c.k&&c.apo==='アポする');else if(cf==='fw')l=l.filter(isFW);else if(cf==='pd')l=l.filter(c=>c.st==='返信待ち');else if(cf==='wn')l=l.filter(c=>c.st==='渉外獲得');
+  if(asf)l=l.filter(c=>c.asgn===asf);if(sq)l=l.filter(c=>c.name.includes(sq)||c.ind.includes(sq));
   if(scol)l.sort((a,b)=>{const va=a[scol]??'',vb=b[scol]??'';return sdir*(typeof va==='number'?va-vb:String(va).localeCompare(String(vb),'ja'));});
   return l;
 }
 const thC=col=>scol===col?(sdir===1?'asc':'desc'):'';
-
-function rdr(){
-  if(vm==='table')rdrT();
-  else if(vm==='kanban')rdrK();
-  else if(vm==='today')rdrTD();
-  upd();
-}
+function rdr(){if(vm==='table')rdrT();else if(vm==='kanban')rdrK();else if(vm==='today')rdrTD();upd();}
 
 function wfH(c){
   const id=c.id,st=c.st;
   if(st==='未着手')return '<button class="wfb wfb-tl" onclick="adv('+id+',\'テレアポ済\')">TEL済</button><button class="wfb wfb-tl" onclick="adv('+id+',\'メルアポ済\')">MAIL済</button>';
   if(st==='テレアポ済'||st==='メルアポ済')return '<button class="wfb wfb-b" onclick="adv('+id+',\'返信待ち\')">返信待ちへ →</button>';
-  if(st==='返信待ち')return '<button class="wfb wfb-g" onclick="adv('+id+',\'渉外獲得\')">✓ 獲得!</button> <button class="wfb wfb-r" onclick="adv('+id+',\'失注\')">失注</button>';
-  if(st==='渉外獲得')return '<span class="wf-done">✓ 完了</span>';
+  if(st==='返信待ち')return '<button class="wfb wfb-g" onclick="adv('+id+',\'渉外獲得\')">獲得!</button> <button class="wfb wfb-r" onclick="adv('+id+',\'失注\')">失注</button>';
+  if(st==='渉外獲得')return '<span class="wf-done">完了</span>';
   if(st==='失注'&&isFW(c))return '<button class="wfb wfb-or" onclick="adv('+id+',\'未着手\')">再アタック</button>';
   if(st==='失注')return '<span class="wf-none">フォロー待ち</span>';
   return '<span class="wf-none">-</span>';
 }
-
 function adv(id,ns){const c=D.find(x=>x.id===id);if(!c)return;c.st=ns;if(ns==='失注'&&!c.fd)c.fd=new Date().toISOString().slice(0,10);if(ns==='未着手')c.fd=null;rdr();toast('→ '+ns);}
 
 function rH(c){
-  const fw=isFW(c),avb=AVC[c.asgn]||'#aaa',avt=AVT[c.asgn]||'#fff';
+  const fw=isFW(c),avb=getAVC(c.asgn),avt=getAVT(c.asgn);
   const dts=[0,1,2,3,4].map(i=>'<span class="dot" style="background:'+(i<c.sc?'var(--g)':'var(--gr)')+'"></span>').join('');
   const so=ST.map(v=>'<option'+(c.st===v?' selected':'')+'>'+v+'</option>').join('');
   return '<tr class="'+(sel.has(c.id)?'sel':'')+'">'+
     '<td onclick="event.stopPropagation()"><input type="checkbox" class="cb"'+(sel.has(c.id)?' checked':'')+' onchange="togR('+c.id+')"/></td>'+
-    '<td><div class="cn">'+c.name+(fw?'<span class="ft">フォロー</span>':'')+'</div>'+
-    '<div style="display:flex;align-items:center;gap:3px"><span class="ci">'+c.ind+'</span>'+(c.url?'<a class="curl" href="'+c.url+'" target="_blank">↗</a>':'')+'</div>'+
-    (c.memo?'<div class="cmemo">'+c.memo+'</div>':'')+
+    '<td><div class="cn">'+c.name+(fw?'<span class="ft">フォロー</span>':'')+'</div><div style="display:flex;align-items:center;gap:3px"><span class="ci">'+c.ind+'</span>'+(c.url?'<a class="curl" href="'+c.url+'" target="_blank">開く</a>':'')+'</div>'+(c.memo?'<div class="cmemo">'+c.memo+'</div>':'')+
     '</td>'+
     '<td><span class="av" style="background:'+avb+';color:'+avt+'">'+c.asgn.slice(0,2)+'</span> <span style="font-size:11px">'+c.asgn+'</span></td>'+
     '<td><div class="dots">'+dts+'</div></td>'+
     '<td onclick="event.stopPropagation()"><div class="wfa">'+wfH(c)+'</div></td>'+
     '<td onclick="event.stopPropagation()"><select class="ss '+(SC[ST.indexOf(c.st)]||'s0')+'" onchange="chgS('+c.id+',this)">'+so+'</select></td>'+
-    '<td onclick="event.stopPropagation()"><div class="kchk'+(c.k?' done':'')+'" onclick="tkn('+c.id+',this)">'+(c.k?'✓':'')+'</div></td>'+
-    '<td onclick="event.stopPropagation()"><div class="abtns">'+
-      '<button class="ab2 ab-t" onclick="opnTpl('+c.id+')">AIメルアポ</button>'+
-      '<button class="ab2 ab-e" onclick="opn(\'edit\','+c.id+')">編集</button>'+
-      '<button class="ab2 ab-d" onclick="delC('+c.id+')">削除</button>'+
-    '</div></td>'+
+    '<td onclick="event.stopPropagation()"><div class="kchk'+(c.k?' done':'')+'" onclick="tkn('+c.id+',this)">'+(c.k?'済':'')+'</div></td>'+
+    '<td onclick="event.stopPropagation()"><div class="abtns"><button class="ab2 ab-t" onclick="opnTpl('+c.id+')">AIメルアポ</button><button class="ab2 ab-e" onclick="opn(\'edit\','+c.id+')">編集</button><button class="ab2 ab-d" onclick="delC('+c.id+')">削除</button></div></td>'+
   '</tr>';
 }
-
 function rdrT(){
   const l=gl(),tw=document.getElementById('tw');
   const rows=l.length?l.map(rH).join(''):'<tr><td colspan="8" class="empty">該当する企業がありません</td></tr>';
-  tw.innerHTML='<table><thead><tr>'+
-    '<th style="width:26px" onclick="event.stopPropagation()"><input type="checkbox" class="cb" id="ca" onchange="tAll(this)"/></th>'+
-    '<th class="'+thC('name')+'" onclick="srt(\'name\')">企業名</th>'+
-    '<th class="'+thC('asgn')+'" onclick="srt(\'asgn\')">担当</th>'+
-    '<th class="'+thC('sc')+'" onclick="srt(\'sc\')">整合性</th>'+
-    '<th>次のアクション</th><th>ステータス</th>'+
-    '<th style="width:34px">K</th><th style="width:105px">操作</th>'+
-  '</tr></thead><tbody>'+rows+'</tbody></table>';
+  tw.innerHTML='<table><thead><tr><th style="width:26px" onclick="event.stopPropagation()"><input type="checkbox" class="cb" id="ca" onchange="tAll(this)"/></th><th class="'+thC('name')+'" onclick="srt(\'name\')">企業名</th><th class="'+thC('asgn')+'" onclick="srt(\'asgn\')">担当</th><th class="'+thC('sc')+'" onclick="srt(\'sc\')">整合性</th><th>次のアクション</th><th>ステータス</th><th style="width:34px">K</th><th style="width:105px">操作</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
 
-const KCOLS=[
-  {label:'未対応',color:'var(--tl)',dst:'未着手',f:c=>c.apo==='アポする'&&c.st==='未着手'},
-  {label:'アポ中',color:'var(--b)',dst:'テレアポ済',f:c=>['テレアポ済','メルアポ済'].includes(c.st)},
-  {label:'返信待ち',color:'var(--y)',dst:'返信待ち',f:c=>c.st==='返信待ち'},
-  {label:'渉外獲得',color:'var(--pu)',dst:'渉外獲得',f:c=>c.st==='渉外獲得'},
-  {label:'失注/テリ',color:'var(--gr)',dst:'失注',f:c=>['失注','テリ被り'].includes(c.st)},
-];
-
+const KCOLS=[{label:'未対応',color:'var(--tl)',dst:'未着手',f:c=>c.apo==='アポする'&&c.st==='未着手'},{label:'アポ中',color:'var(--b)',dst:'テレアポ済',f:c=>['テレアポ済','メルアポ済'].includes(c.st)},{label:'返信待ち',color:'var(--y)',dst:'返信待ち',f:c=>c.st==='返信待ち'},{label:'渉外獲得',color:'var(--pu)',dst:'渉外獲得',f:c=>c.st==='渉外獲得'},{label:'失注/テリ',color:'var(--gr)',dst:'失注',f:c=>['失注','テリ被り'].includes(c.st)}];
 function dStart(e,id){dragId=id;e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(id));}
 function dOver(e,el){e.preventDefault();el.classList.add('drag-over');}
 function dLeave(el){el.classList.remove('drag-over');}
-function dDrop(e,dst){
-  e.preventDefault();const el=e.currentTarget;el.classList.remove('drag-over');
-  const id=dragId!==null?dragId:parseInt(e.dataTransfer.getData('text/plain'));
-  const c=D.find(x=>x.id===id);
-  if(c){c.st=dst;if(dst==='失注'&&!c.fd)c.fd=new Date().toISOString().slice(0,10);if(dst==='未着手')c.fd=null;rdr();toast('→ '+dst);}
-  dragId=null;
-}
+function dDrop(e,dst){e.preventDefault();const el=e.currentTarget;el.classList.remove('drag-over');const id=dragId!==null?dragId:parseInt(e.dataTransfer.getData('text/plain'));const c=D.find(x=>x.id===id);if(c){c.st=dst;if(dst==='失注'&&!c.fd)c.fd=new Date().toISOString().slice(0,10);if(dst==='未着手')c.fd=null;rdr();toast('→ '+dst);}dragId=null;}
 
 function rdrK(){
-  const tw=document.getElementById('tw');
-  let html='<div class="kanban">';
+  const tw=document.getElementById('tw');let html='<div class="kanban">';
   KCOLS.forEach(col=>{
     const items=D.filter(col.f).filter(c=>(!asf||c.asgn===asf)&&(!sq||c.name.includes(sq)||c.ind.includes(sq)));
-    html+='<div class="kol"><div class="kol-h" style="border-top-color:'+col.color+'"><span class="kol-ht">'+col.label+'</span><span class="kol-cnt">'+items.length+'</span></div>'+
-      '<div class="kol-body" ondragover="dOver(event,this)" ondragleave="dLeave(this)" ondrop="dDrop(event,\''+col.dst+'\')">';
+    html+='<div class="kol"><div class="kol-h" style="border-top-color:'+col.color+'"><span class="kol-ht">'+col.label+'</span><span class="kol-cnt">'+items.length+'</span></div><div class="kol-body" ondragover="dOver(event,this)" ondragleave="dLeave(this)" ondrop="dDrop(event,\''+col.dst+'\')">';
     if(!items.length)html+='<div class="kol-empty">ここにドラッグ</div>';
     else items.forEach(c=>{
-      const fw=isFW(c),avb=AVC[c.asgn]||'#aaa',avt=AVT[c.asgn]||'#fff';
+      const fw=isFW(c),avb=getAVC(c.asgn),avt=getAVT(c.asgn);
       const dts=[0,1,2,3,4].map(i=>'<span class="dot" style="background:'+(i<c.sc?'var(--g)':'var(--gr)')+'"></span>').join('');
-      html+='<div class="kcard" draggable="true" ondragstart="dStart(event,'+c.id+')" onclick="opn(\'edit\','+c.id+')" ondragend="dragId=null">'+
-        '<div class="kc-name">'+c.name+(fw?'<span class="ft">フォロー</span>':'')+'</div>'+
-        '<div class="kc-meta"><span class="av" style="background:'+avb+';color:'+avt+';width:16px;height:16px;font-size:8px">'+c.asgn.slice(0,2)+'</span> <span>'+c.asgn+'</span></div>'+
-        '<div class="dots" style="margin-bottom:6px">'+dts+'</div>'+
-        '<div class="kc-act" onclick="event.stopPropagation()">'+wfH(c)+'<button class="wfb wfb-pu" style="font-size:9px;padding:2px 5px" onclick="opnTpl('+c.id+')">AIメルアポ</button></div>'+
-      '</div>';
+      html+='<div class="kcard" draggable="true" ondragstart="dStart(event,'+c.id+')" onclick="opn(\'edit\','+c.id+')" ondragend="dragId=null"><div class="kc-name">'+c.name+(fw?'<span class="ft">フォロー</span>':'')+'</div><div class="kc-meta"><span class="av" style="background:'+avb+';color:'+avt+';width:16px;height:16px;font-size:8px">'+c.asgn.slice(0,2)+'</span> <span>'+c.asgn+'</span></div><div class="dots" style="margin-bottom:6px">'+dts+'</div><div class="kc-act" onclick="event.stopPropagation()">'+wfH(c)+'<button class="wfb wfb-pu" style="font-size:9px;padding:2px 5px" onclick="opnTpl('+c.id+')">AIメルアポ</button></div></div>';
     });
     html+='</div></div>';
   });
-  html+='</div>';
-  tw.innerHTML=html;
+  tw.innerHTML=html+'</div>';
 }
 
 function tcardH(c,type){
-  const avb=AVC[c.asgn]||'#aaa',avt=AVT[c.asgn]||'#fff';
+  const avb=getAVC(c.asgn),avt=getAVT(c.asgn);
   let act='';
   if(type==='fw')act='<button class="wfb wfb-or" onclick="adv('+c.id+',\'未着手\')">再アタック</button><button class="wfb" onclick="opn(\'edit\','+c.id+')">詳細</button>';
-  else if(type==='pd')act='<button class="wfb wfb-g" onclick="adv('+c.id+',\'渉外獲得\')">✓ 獲得!</button><button class="wfb wfb-r" onclick="adv('+c.id+',\'失注\')">失注</button><button class="wfb wfb-pu" onclick="opnTpl('+c.id+')">AIメルアポ</button>';
+  else if(type==='pd')act='<button class="wfb wfb-g" onclick="adv('+c.id+',\'渉外獲得\')">獲得!</button><button class="wfb wfb-r" onclick="adv('+c.id+',\'失注\')">失注</button><button class="wfb wfb-pu" onclick="opnTpl('+c.id+')">AIメルアポ</button>';
   else if(type==='ns')act='<button class="wfb wfb-tl" onclick="adv('+c.id+',\'テレアポ済\')">TEL済</button><button class="wfb wfb-tl" onclick="adv('+c.id+',\'メルアポ済\')">MAIL済</button><button class="wfb wfb-pu" onclick="opnTpl('+c.id+')">AIメルアポ</button>';
   return '<div class="tcard"><div class="tc-info"><div class="tc-name">'+c.name+'</div><div class="tc-meta"><span class="av" style="background:'+avb+';color:'+avt+';width:16px;height:16px;font-size:8px">'+c.asgn.slice(0,2)+'</span> <span>'+c.asgn+'</span><span>'+c.ind+'</span>'+(c.fd?'<span style="color:var(--or)">失注:'+c.fd.slice(5).replace('-','/')+'</span>':'')+'</div></div><div class="tc-act">'+act+'</div></div>';
 }
-
 function rdrTD(){
   const tw=document.getElementById('tw');
   const fw=D.filter(isFW),pd=D.filter(c=>c.st==='返信待ち'),ns=D.filter(c=>c.apo==='アポする'&&c.st==='未着手');
-  if(!fw.length&&!pd.length&&!ns.length){tw.innerHTML='<div class="today-wrap"><div class="today-ok">✓ 今日やることは全て完了！<br><span style="font-size:11px;font-weight:400;opacity:.7;margin-top:6px;display:block">引き続きリスアップも忘れずに</span></div></div>';return;}
+  if(!fw.length&&!pd.length&&!ns.length){tw.innerHTML='<div class="today-wrap"><div class="today-ok">今日やることは全て完了！<br><span style="font-size:11px;font-weight:400;opacity:.7;margin-top:6px;display:block">引き続きリスアップも忘れずに</span></div></div>';return;}
   let html='<div class="today-wrap">';
-  if(fw.length)html+='<div class="t-sect"><div class="t-sh t-sh-or">⚠ 失注フォロー ('+fw.length+'件) — 失注から300日以上経過</div>'+fw.map(c=>tcardH(c,'fw')).join('')+'</div>';
-  if(pd.length)html+='<div class="t-sect"><div class="t-sh t-sh-y">⏳ 返信待ち ('+pd.length+'件) — 渉外獲得か失注に更新しましょう</div>'+pd.map(c=>tcardH(c,'pd')).join('')+'</div>';
-  if(ns.length)html+='<div class="t-sect"><div class="t-sh t-sh-b">▶ 未対応アポ候補 ('+ns.length+'件) — テレアポかメルアポを実施しましょう</div>'+ns.map(c=>tcardH(c,'ns')).join('')+'</div>';
-  html+='</div>';
-  tw.innerHTML=html;
+  if(fw.length)html+='<div class="t-sect"><div class="t-sh t-sh-or">失注フォロー ('+fw.length+'件)</div>'+fw.map(c=>tcardH(c,'fw')).join('')+'</div>';
+  if(pd.length)html+='<div class="t-sect"><div class="t-sh t-sh-y">返信待ち ('+pd.length+'件)</div>'+pd.map(c=>tcardH(c,'pd')).join('')+'</div>';
+  if(ns.length)html+='<div class="t-sect"><div class="t-sh t-sh-b">未対応アポ候補 ('+ns.length+'件)</div>'+ns.map(c=>tcardH(c,'ns')).join('')+'</div>';
+  tw.innerHTML=html+'</div>';
 }
 
-function setVm(mode){
-  vm=mode;document.querySelectorAll('.vmtab').forEach(t=>t.classList.remove('act'));document.querySelector('.vmtab[data-vm="'+mode+'"]').classList.add('act');document.getElementById('ftabs').style.display=mode==='table'?'flex':'none';
-  if(mode!=='table'){cf='all';document.querySelectorAll('.ni').forEach((n,i)=>{n.classList.remove('act');if(i===0)n.classList.add('act');});}
-  rdr();
-}
+function setVm(mode){vm=mode;document.querySelectorAll('.vmtab').forEach(t=>t.classList.remove('act'));document.querySelector('.vmtab[data-vm="'+mode+'"]').classList.add('act');document.getElementById('ftabs').style.display=mode==='table'?'flex':'none';if(mode!=='table'){cf='all';document.querySelectorAll('.ni').forEach((n,i)=>{n.classList.remove('act');if(i===0)n.classList.add('act');});}rdr();}
 
 function upd(){
   const t=D.length,a=D.filter(c=>c.apo==='アポする').length,k=D.filter(c=>c.k).length;
@@ -442,184 +433,79 @@ function upd(){
   const n=sel.size;const bk=document.getElementById('bkbar');if(bk)bk.style.display=n?'flex':'none';
   const bi=document.getElementById('bkinfo');if(bi&&n)bi.textContent=n+'件選択中';
   if(vm==='table'){const ca=document.getElementById('ca');if(ca){const vl=gl();ca.checked=n>0&&n===vl.length;ca.indeterminate=n>0&&n<vl.length;}}
-  const ns=D.filter(c=>c.apo==='アポする'&&c.st==='未着手').length;
+  const ns2=D.filter(c=>c.apo==='アポする'&&c.st==='未着手').length;
   const ab=document.getElementById('alertbar');
-  const items=[];if(fw)items.push(fw+'件の失注フォロー');if(pd)items.push(pd+'件の返信待ち');if(ns)items.push(ns+'件の未対応アポ候補');
+  const items=[];if(fw)items.push(fw+'件の失注フォロー');if(pd)items.push(pd+'件の返信待ち');if(ns2)items.push(ns2+'件の未対応アポ候補');
   if(items.length&&!alDismissed){ab.style.display='flex';const at=document.getElementById('alerttext');if(at)at.textContent='要アクション: '+items.join(' · ');}
   else if(!items.length){ab.style.display='none';alDismissed=false;}
 }
 function aDismiss(){alDismissed=true;document.getElementById('alertbar').style.display='none';}
 function setMe(v){myName=v;document.getElementById('mybtn').className='me-btn'+(v?' on':'');}
-function toggleMe(){
-  if(!myName){toast('まずサイドバーで自分の名前を設定してください');return;}
-  asf=asf===myName?'':myName;
-  document.getElementById('asel').value=asf;
-  document.getElementById('mybtn').textContent=asf?'全員を表示':'自分のみ表示';
-  rdr();toast(asf?myName+'のタスクのみ表示':'全担当を表示');
-}
+function toggleMe(){if(!myName){toast('まず自分を設定してください');return;}asf=asf===myName?'':myName;document.getElementById('asel').value=asf;document.getElementById('mybtn').textContent=asf?'全員を表示':'自分のみ表示';rdr();toast(asf?myName+'のタスクのみ表示':'全担当を表示');}
 
 function sf(f,el){cf=f;document.querySelectorAll('#ftabs .tab').forEach(t=>t.classList.remove('act'));el.classList.add('act');rdr();}
-function snav(el,f){
-  cf=f;document.querySelectorAll('.ni').forEach(n=>n.classList.remove('act'));el.classList.add('act');
-  const m={'all':0,'apo':1,'kt':2,'fw':3};
-  document.querySelectorAll('#ftabs .tab').forEach(t=>t.classList.remove('act'));
-  if(m[f]!=null)document.querySelectorAll('#ftabs .tab')[m[f]]?.classList.add('act');
-  if(vm!=='table'){vm='table';document.querySelectorAll('.vmtab').forEach(t=>t.classList.remove('act'));document.querySelector('.vmtab[data-vm="table"]').classList.add('act');document.getElementById('ftabs').style.display='flex';}
-  rdr();
-}
-function doS(v){sq=v;rdr();}
-function doA(v){asf=v;rdr();}
+function snav(el,f){cf=f;document.querySelectorAll('.ni').forEach(n=>n.classList.remove('act'));el.classList.add('act');const m={'all':0,'apo':1,'kt':2,'fw':3};document.querySelectorAll('#ftabs .tab').forEach(t=>t.classList.remove('act'));if(m[f]!=null)document.querySelectorAll('#ftabs .tab')[m[f]]?.classList.add('act');if(vm!=='table'){vm='table';document.querySelectorAll('.vmtab').forEach(t=>t.classList.remove('act'));document.querySelector('.vmtab[data-vm="table"]').classList.add('act');document.getElementById('ftabs').style.display='flex';}rdr();}
+function doS(v){sq=v;rdr();}function doA(v){asf=v;rdr();}
 function srt(c){if(scol===c)sdir=-sdir;else{scol=c;sdir=1;}rdr();}
 function togR(id){sel.has(id)?sel.delete(id):sel.add(id);const l=gl();document.querySelectorAll('#tw tbody tr').forEach((r,i)=>{if(l[i])r.className=sel.has(l[i].id)?'sel':'';});const n=sel.size;const bk=document.getElementById('bkbar');if(bk)bk.style.display=n?'flex':'none';const bi=document.getElementById('bkinfo');if(bi&&n)bi.textContent=n+'件選択中';const ca=document.getElementById('ca');if(ca){ca.checked=n>0&&n===l.length;ca.indeterminate=n>0&&n<l.length;}}
 function tAll(cb){if(cb.checked)gl().forEach(c=>sel.add(c.id));else sel.clear();rdr();}
-function tkn(id,el){const c=D.find(x=>x.id===id);c.k=c.k?0:1;el.className='kchk'+(c.k?' done':'');el.innerHTML=c.k?'✓':'';upd();toast(c.k?'Kintone登録しました':'登録を解除しました');}
+function tkn(id,el){const c=D.find(x=>x.id===id);c.k=c.k?0:1;el.className='kchk'+(c.k?' done':'');el.innerHTML=c.k?'済':'';upd();toast(c.k?'Kintone登録しました':'登録を解除しました');}
 function chgS(id,el){const c=D.find(x=>x.id===id);c.st=el.value;el.className='ss '+(SC[ST.indexOf(el.value)]||'s0');if(c.st==='失注'&&!c.fd)c.fd=new Date().toISOString().slice(0,10);upd();toast('ステータスを更新しました');}
 function bulkK(){const n=sel.size;sel.forEach(id=>{const c=D.find(x=>x.id===id);if(c)c.k=1;});toast(n+'件をKintone登録しました');clrS();}
 function clrS(){sel.clear();rdr();}
 
-function expCSV(){
-  const h=['企業名','業種','URL','担当者','整合性','アポ判断','ステータス','Kintone','登録日','メモ'];
-  const rows=D.map(c=>[c.name,c.ind,c.url||'',c.asgn,c.sc,c.apo,c.st,c.k?'済':'未',c.at,c.memo||'']);
-  const csv='\uFEFF'+[h,...rows].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='ICX_HI_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);toast('CSVをダウンロードしました');
-}
-function impCSV(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{const lines=e.target.result.split('\n').filter(l=>l.trim());let added=0;lines.slice(1).forEach(line=>{const cols=line.split(',').map(c=>c.replace(/^"|"$/g,'').trim());if(cols[0]){D.push({id:nid++,name:cols[0],ind:cols[1]||'その他',url:cols[2]||'',asgn:cols[3]||'なな',sc:parseInt(cols[4])||0,apo:cols[5]||'未判断',st:cols[6]||'未着手',k:cols[7]==='済'?1:0,at:cols[8]||new Date().toISOString().slice(0,10),fd:null,memo:cols[9]||''});added++;}});rdr();toast(added+'件インポートしました');inp.value='';};r.readAsText(f,'UTF-8');}
-
+function expCSV(){const h=['企業名','業種','URL','担当者','整合性','アポ判断','ステータス','Kintone','登録日','メモ'];const rows=D.map(c=>[c.name,c.ind,c.url||'',c.asgn,c.sc,c.apo,c.st,c.k?'済':'未',c.at,c.memo||'']);const csv='\uFEFF'+[h,...rows].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='ICX_HI_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);toast('CSVをダウンロードしました');}
+function impCSV(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{const lines=e.target.result.split('\n').filter(l=>l.trim());let added=0;lines.slice(1).forEach(line=>{const cols=line.split(',').map(c=>c.replace(/^"|"$/g,'').trim());if(cols[0]){D.push({id:nid++,name:cols[0],ind:cols[1]||'その他',url:cols[2]||'',asgn:cols[3]||assignees[0]?.name||'',sc:parseInt(cols[4])||0,apo:cols[5]||'未判断',st:cols[6]||'未着手',k:cols[7]==='済'?1:0,at:cols[8]||new Date().toISOString().slice(0,10),fd:null,memo:cols[9]||''});added++;}});rdr();toast(added+'件インポートしました');inp.value='';};r.readAsText(f,'UTF-8');}
 function delC(id){const idx=D.findIndex(x=>x.id===id);if(idx<0)return;const c=D[idx];D.splice(idx,1);dBuf={c,idx};rdr();const tc=document.getElementById('tc'),t=document.createElement('div');t.className='toast';t.innerHTML=c.name+' を削除 <button class="ubtn">元に戻す</button>';tc.appendChild(t);requestAnimationFrame(()=>requestAnimationFrame(()=>t.classList.add('on')));const tid=setTimeout(()=>{t.classList.remove('on');dBuf=null;setTimeout(()=>t.remove(),220);},5000);t.querySelector('.ubtn').addEventListener('click',()=>{clearTimeout(tid);if(dBuf){D.splice(dBuf.idx,0,dBuf.c);dBuf=null;rdr();toast('削除を元に戻しました');}t.remove();});}
 
+// ===== パネル =====
 function TPLH(cid){
   const c=cid?D.find(x=>x.id===cid):null;
-  const n=(c?c.name:'').replace(/"/g,'&quot;');
-  const ind=(c?c.ind:'').replace(/"/g,'&quot;');
-  const memo=(c?c.memo||'':'').replace(/"/g,'&quot;');
-  return '<div class="ph ph-ai"><div class="pht">✦ AIメルアポ作成</div><button class="xb" onclick="cls()">✕</button></div>'+
-    '<div class="pb">'+
-    '<div style="background:linear-gradient(135deg,#F3EEFF,#E8F4FE);border-radius:8px;padding:9px 10px;font-size:11px;color:#3d1d8f;line-height:1.6">✨ 企業情報を入力して「AIで個別最適化」を押すと、業種・特徴に合わせたメルアポ文を自動生成します。</div>'+
-    '<div><div class="fl">企業名</div><input class="fi" id="tco" value="'+n+'" placeholder="株式会社○○" oninput="utpl()"/></div>'+
-    '<div><div class="fl">業種 (AIが参照)</div><input class="fi" id="tind" value="'+ind+'" placeholder="例: 建設業、IT・ソフトウェア"/></div>'+
-    '<div><div class="fl">企業メモ・特徴 (AIが参照)</div><input class="fi" id="tmemo" value="'+memo+'" placeholder="英語対応、海外拠点あり、SDGs推進 等"/></div>'+
-    '<div><div class="fl">送信者名</div><input class="fi" id="tna" value="黒沼春之介" oninput="utpl()"/></div>'+
-    '<div style="display:flex;gap:6px">'+
-    '<button id="ai-btn" class="ai-gen-btn" onclick="genAI()">✦ AIで個別最適化</button>'+
-    '<button onclick="utpl()" style="padding:9px 11px;border-radius:7px;border:1px solid var(--gr);background:#fff;color:var(--dk);font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap">標準テンプレ</button>'+
-    '</div>'+
-    '<div id="tbox" class="tbox"></div>'+
-    '</div>'+
-    '<div class="pf"><button class="bs" onclick="cls()">閉じる</button><button class="bp" onclick="cpTpl()">コピー</button></div>';
+  const n=(c?c.name:'').replace(/"/g,'&quot;'),ind=(c?c.ind:'').replace(/"/g,'&quot;'),memo=(c?c.memo||'':'').replace(/"/g,'&quot;');
+  return '<div class="ph ph-ai"><div class="pht">AIメルアポ作成</div><button class="xb" onclick="cls()">×</button></div><div class="pb"><div style="background:linear-gradient(135deg,#F3EEFF,#E8F4FE);border-radius:8px;padding:9px 10px;font-size:11px;color:#3d1d8f;line-height:1.6">企業情報を入力して「AIで個別最適化」を押すと、業種に合わせた文章を自動生成します。</div><div><div class="fl">企業名</div><input class="fi" id="tco" value="'+n+'" placeholder="株式会社○○" oninput="utpl()"/></div><div><div class="fl">業種 (AIが参照)</div><input class="fi" id="tind" value="'+ind+'" placeholder="例: 建設業"/></div><div><div class="fl">企業メモ・特徴 (AIが参照)</div><input class="fi" id="tmemo" value="'+memo+'" placeholder="英語対応、海外拠点あり 等"/></div><div><div class="fl">送信者名</div><input class="fi" id="tna" value="黒沼春之介" oninput="utpl()"/></div><div style="display:flex;gap:6px"><button id="ai-btn" class="ai-gen-btn" onclick="genAI()">AIで個別最適化</button><button onclick="utpl()" style="padding:9px 11px;border-radius:7px;border:1px solid var(--gr);background:#fff;color:var(--dk);font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap">標準</button></div><div id="tbox" class="tbox"></div></div><div class="pf"><button class="bs" onclick="cls()">閉じる</button><button class="bp" onclick="cpTpl()">コピー</button></div>';
 }
-
-function opnTpl(cid){
-  document.getElementById('pnl').innerHTML=TPLH(cid);
-  document.getElementById('ov').style.display='block';
-  document.getElementById('pnl').classList.add('open');
-  utpl();
-}
-
-function utpl(){
-  const co=document.getElementById('tco')?.value||'○○株式会社',na=document.getElementById('tna')?.value||'担当者名',el=document.getElementById('tbox');
-  if(!el)return;
-  el.textContent=co+'\nご担当者様\n\n突然のご連絡失礼いたします。アイセック一橋大学委員会にて活動しております、一橋大学2年の'+na+'と申します。\n\n弊団体では、日本の企業様に1〜2ヶ月ほど海外の学生を受け入れていただく「海外インターンシップ」の運営を行っております。\n\nこの度は、貴社の採用・育成の現状や社内のグローバル化推進についてぜひお伺いしたく、ご連絡させていただきました。\n\nオンラインにて30分ほどお時間をいただけますでしょうか。何卒よろしくお願い申し上げます。\nアイセック一橋大学委員会\n'+na;
-}
-
+function opnTpl(cid){document.getElementById('pnl').innerHTML=TPLH(cid);document.getElementById('ov').style.display='block';document.getElementById('pnl').classList.add('open');utpl();}
+function utpl(){const co=document.getElementById('tco')?.value||'○○株式会社',na=document.getElementById('tna')?.value||'担当者名',el=document.getElementById('tbox');if(!el)return;el.textContent=mailTpl.replace(/{company}/g,co).replace(/{sender}/g,na);}
 async function genAI(){
-  const co=document.getElementById('tco')?.value?.trim()||'○○株式会社';
-  const ind=document.getElementById('tind')?.value?.trim()||'';
-  const memo=document.getElementById('tmemo')?.value?.trim()||'';
-  const na=document.getElementById('tna')?.value?.trim()||'担当者名';
-  const el=document.getElementById('tbox');const btn=document.getElementById('ai-btn');
-  if(!el)return;
-  el.innerHTML='<span style="opacity:.6;font-style:italic">✦ AIが企業情報を分析してメール文を生成中... (5〜10秒)</span>';
+  const co=document.getElementById('tco')?.value?.trim()||'○○株式会社',ind=document.getElementById('tind')?.value?.trim()||'',memo=document.getElementById('tmemo')?.value?.trim()||'',na=document.getElementById('tna')?.value?.trim()||'担当者名';
+  const el=document.getElementById('tbox'),btn=document.getElementById('ai-btn');if(!el)return;
+  el.innerHTML='<span style="opacity:.6;font-style:italic">生成中... (5〜10秒)</span>';
   if(btn){btn.disabled=true;btn.textContent='生成中...';}
-  const prompt='あなたはAIESEC一橋大学委員会のICXメンバー「'+na+'」です。'+co+'（業種: '+(ind||'不明')+'）に海外インターンシップ受け入れをお願いするメルアポメールを書いてください。\n'+(memo?'企業情報: '+memo+'\n':'')+'要件:\n- 件名から「件名: 」で始める\n- '+(ind||'この業界')+'に合わせた具体的な表現で説得力を持たせる\n- AIESECの特徴（無料・1〜2ヶ月・海外学生受け入れ・グローバル採用強化）を自然に織り込む\n- 30分のオンラインMTGを依頼する\n- 全体200〜260字以内\n- '+na+'の署名で締める\n\nメール本文のみ出力し、余計な説明は不要です。';
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:prompt}]})});
-    const d=await res.json();
-    const text=d.content?.[0]?.text;
-    if(text)el.textContent=text;
-    else el.innerHTML='<span style="color:var(--r)">エラーが発生しました。「標準テンプレ」ボタンを使用してください。</span>';
-  }catch(e){
-    el.innerHTML='<span style="color:var(--r)">エラーが発生しました。「標準テンプレ」ボタンを使用してください。</span>';
-  }finally{if(btn){btn.disabled=false;btn.textContent='✦ AIで個別最適化';}}
+  try{const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:'AIESEC一橋大学委員会の「'+na+'」として、'+co+'（業種: '+(ind||'不明')+'）に海外インターンシップ受け入れをお願いするメルアポメールを書いてください。\n'+(memo?'企業情報: '+memo+'\n':'')+'- 件名から「件名: 」で始める\n- 業界に合わせた表現を使う\n- AIESECの特徴（無料・1〜2ヶ月・海外学生受け入れ）を自然に盛り込む\n- 30分のオンラインMTGを依頼する\n- 200〜260字以内\n- '+na+'の署名で締める\nメール本文のみ出力してください。'}]})});const d=await res.json();const text=d.content?.[0]?.text;if(text)el.textContent=text;else el.innerHTML='<span style="color:var(--r)">エラー。「標準」ボタンをお使いください。</span>';}
+  catch(e){el.innerHTML='<span style="color:var(--r)">エラー。「標準」ボタンをお使いください。</span>';}
+  finally{if(btn){btn.disabled=false;btn.textContent='AIで個別最適化';}}
 }
+function cpTpl(){const el=document.getElementById('tbox');const t=el?.textContent||'';if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>toast('コピーしました'));else{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('コピーしました');}}
 
-function cpTpl(){
-  const el=document.getElementById('tbox');
-  const t=el?.textContent||'';
-  if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>toast('コピーしました'));
-  else{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('コピーしました');}
+function SCPH(){
+  const lines=telScript.split('\n');let html='';
+  lines.forEach(line=>{if(line.startsWith('【')&&line.includes('】'))html+='<div class="shead" style="margin-top:8px">'+escH(line)+'</div>';else if(line.startsWith('□'))html+='<div style="font-size:11px;padding:2px 4px;color:var(--dk)">'+escH(line)+'</div>';else if(line.trim()&&line.startsWith('「'))html+='<div style="font-size:11px;line-height:1.7;color:var(--dk);padding:5px 9px;background:var(--bg);border-radius:5px;margin:2px 0">'+escH(line)+'</div>';else if(line.startsWith('→'))html+='<div style="font-size:11px;color:var(--or);padding:2px 4px">'+escH(line)+'</div>';else if(line.trim())html+='<div style="font-size:11px;line-height:1.6;color:var(--dk);padding:2px 4px">'+escH(line)+'</div>';});
+  return '<div class="ph"><div class="pht">テレアポスクリプト</div><button class="xb" onclick="cls()">×</button></div><div class="pb" style="gap:3px">'+html+'</div><div class="pf"><button class="bs" onclick="opn(\'settings\',2)" style="flex:none;padding:9px 14px">編集</button><button class="bp" onclick="cls()">閉じる</button></div>';
 }
-
+function GLSH(){const T=[['失注','連絡したが断られた状態。失注日から約1年後に再アタック推奨。'],['テリ被り','他のLCが既に同じ企業にアポしていること。Kintoneで確認できる。'],['渉外獲得','ヒアリング・提案が成立し受け入れ合意が得られた状態。'],['メルアポ','メールでアポを取る手法。CVR目安は2.5%。'],['テレアポ','電話でアポを取る手法。'],['EP','海外からインターンに来る学生。'],['TN','EPを受け入れる日本企業・団体。'],['Kintone','社内CRM。テリ被り防止と状況管理に活用。'],['CVR','Conversion Rate。メルアポ→ヒアリングの目安は約2.5%。']];
+  return '<div class="ph"><div class="pht">AIESEC ICX 用語集</div><button class="xb" onclick="cls()">×</button></div><div class="pb">'+T.map(([t,d])=>'<div class="gi"><div class="gt">'+t+'</div><div class="gd">'+d+'</div></div>').join('')+'</div><div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';}
 function STATSH(){
   const members=[...new Set(D.map(c=>c.asgn))].sort();
-  let rows=members.map(m=>{
-    const mc=D.filter(c=>c.asgn===m);
-    const tot=mc.length,apo=mc.filter(c=>c.apo==='アポする').length;
-    const cnt=mc.filter(c=>['テレアポ済','メルアポ済','返信待ち','渉外獲得'].includes(c.st)).length;
-    const wn=mc.filter(c=>c.st==='渉外獲得').length,k=mc.filter(c=>c.k).length;
-    const kpct=tot?Math.round(k/tot*100):0,wpct=apo?Math.round(wn/apo*100):0;
-    const avb=AVC[m]||'#aaa',avt=AVT[m]||'#fff';
-    return '<div class="stat-row">'+
-      '<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">'+
-      '<span class="av" style="background:'+avb+';color:'+avt+'">'+m.slice(0,2)+'</span>'+
-      '<span style="font-weight:700;font-size:13px">'+m+'</span>'+
-      '<span style="margin-left:auto;font-size:10px;color:var(--gr)">'+tot+'件担当</span>'+
-      '</div>'+
-      '<div style="display:flex;gap:5px;font-size:10px;flex-wrap:wrap;margin-bottom:5px">'+
-      '<span style="background:#E8F4FE;color:#024fa0;padding:2px 8px;border-radius:100px;font-weight:700">アポ対象 '+apo+'</span>'+
-      '<span style="background:#EDFAF4;color:#005a2b;padding:2px 8px;border-radius:100px;font-weight:700">アポ実施 '+cnt+'</span>'+
-      '<span style="background:#EEE8FF;color:#3d1d8f;padding:2px 8px;border-radius:100px;font-weight:700">獲得 '+wn+'</span>'+
-      '<span style="background:#F3F4F7;color:#5a5e66;padding:2px 8px;border-radius:100px;font-weight:700">K '+kpct+'%</span>'+
-      '</div>'+
-      '<div class="sbar" style="height:6px"><div class="sfil" style="width:'+wpct+'%;background:var(--pu)"></div></div>'+
-      '<div style="text-align:right;font-size:9px;color:var(--gr);margin-top:2px">渉外獲得率 '+wpct+'%</div>'+
-    '</div>';
-  }).join('');
-  return '<div class="ph"><div class="pht">担当別集計</div><button class="xb" onclick="cls()">✕</button></div>'+
-    '<div class="pb" style="gap:0">'+rows+'</div>'+
-    '<div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';
+  const rows=members.map(m=>{const mc=D.filter(c=>c.asgn===m);const tot=mc.length,apo=mc.filter(c=>c.apo==='アポする').length,cnt=mc.filter(c=>['テレアポ済','メルアポ済','返信待ち','渉外獲得'].includes(c.st)).length,wn=mc.filter(c=>c.st==='渉外獲得').length,k=mc.filter(c=>c.k).length;const kpct=tot?Math.round(k/tot*100):0,wpct=apo?Math.round(wn/apo*100):0;const avb=getAVC(m),avt=getAVT(m);return '<div class="stat-row"><div style="display:flex;align-items:center;gap:7px;margin-bottom:5px"><span class="av" style="background:'+avb+';color:'+avt+'">'+m.slice(0,2)+'</span><span style="font-weight:700;font-size:13px">'+m+'</span><span style="margin-left:auto;font-size:10px;color:var(--gr)">'+tot+'件担当</span></div><div style="display:flex;gap:5px;font-size:10px;flex-wrap:wrap;margin-bottom:5px"><span style="background:#E8F4FE;color:#024fa0;padding:2px 8px;border-radius:100px;font-weight:700">アポ対象 '+apo+'</span><span style="background:#EDFAF4;color:#005a2b;padding:2px 8px;border-radius:100px;font-weight:700">アポ実施 '+cnt+'</span><span style="background:#EEE8FF;color:#3d1d8f;padding:2px 8px;border-radius:100px;font-weight:700">獲得 '+wn+'</span><span style="background:#F3F4F7;color:#5a5e66;padding:2px 8px;border-radius:100px;font-weight:700">K '+kpct+'%</span></div><div class="sbar" style="height:6px"><div class="sfil" style="width:'+wpct+'%;background:var(--pu)"></div></div><div style="text-align:right;font-size:9px;color:var(--gr);margin-top:2px">渉外獲得率 '+wpct+'%</div></div>';}).join('');
+  return '<div class="ph"><div class="pht">担当別集計</div><button class="xb" onclick="cls()">×</button></div><div class="pb" style="gap:0">'+rows+'</div><div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';
 }
-
-function SCPH(){return '<div class="ph"><div class="pht">テレアポスクリプト</div><button class="xb" onclick="cls()">✕</button></div><div class="pb"><div class="shead">準備</div><div class="sstep"><div class="stxt">✓ 企業名・担当者名を確認<br>✓ AIESECの概要を30秒で説明できる状態に<br>✓ 提案資料をすぐ送れる準備</div></div><div class="shead">導入 (15秒)</div><div class="sstep"><div class="slbl">切り出し</div><div class="stxt">「○○株式会社の[担当者名]様でいらっしゃいますか？アイセック一橋大学委員会の[名前]と申します。今3分ほどよろしいでしょうか？」</div></div><div class="shead">本題 (30秒)</div><div class="sstep"><div class="slbl">事業説明</div><div class="stxt">「弊団体では、海外の学生を御社に1〜2ヶ月ご紹介する海外インターンシップの運営をしております。採用コストは無料で実費のみです。」</div></div><div class="shead">アポ取り (15秒)</div><div class="sstep"><div class="slbl">クロージング</div><div class="stxt">「ご担当の方に30分ほどお話を聞いていただけますでしょうか？来週以降でご都合の良い日程はございますか？」</div></div><div class="shead">失注時の対応</div><div class="sstep"><div class="slbl">断られた場合</div><div class="stxt">「承知いたしました。もし将来的にご検討いただける場合は、資料だけでもお送りしてよろしいでしょうか？」→ 失注日を記録し1年後に再アタック</div></div></div><div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';}
-
-function GLSH(){const T=[['失注','連絡してみたが断られた状態。失注日から約1年後に再アタック推奨。'],['テリ被り','他のLCが既に同じ企業にアポしていること。Kintone登録で確認できる。'],['渉外獲得','ヒアリング・提案が成立し、受け入れ合意が得られた状態。'],['メルアポ','メールでアポイントメントを取る手法。CVR目安は2.5%。'],['テレアポ','電話でアポを取る手法。レスポンスが早い反面スキルが必要。'],['スクリーニング','企業の受け入れ適性を事前に評価すること。整合性スコアで管理。'],['EP','Exchange Participant。海外からインターンに来る学生。'],['TN','Training National。EPを受け入れる日本企業・団体。'],['Kintone','社内CRM。テリ被り防止と状況管理に活用。'],['CVR','Conversion Rate。メルアポ→ヒアリングの目安は約2.5%。']];
-  return '<div class="ph"><div class="pht">AIESEC ICX 用語集</div><button class="xb" onclick="cls()">✕</button></div><div class="pb">'+T.map(([t,d])=>'<div class="gi"><div class="gt">'+t+'</div><div class="gd">'+d+'</div></div>').join('')+'</div><div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';}
-
-function HELPH(){const S=[['/',  '検索フォーカス'],['Esc','パネルを閉じる'],['T','テーブルビュー'],['K','かんばんビュー'],['D','今日ビュー'],['N','企業を追加'],['M','自分のみ表示/解除']];
-  return '<div class="ph"><div class="pht">キーボードショートカット</div><button class="xb" onclick="cls()">✕</button></div>'+
-    '<div class="pb">'+S.map(([k,d])=>'<div class="gi"><div style="display:flex;align-items:center;gap:10px"><span style="background:var(--bg);padding:3px 10px;border-radius:5px;font-weight:700;font-size:13px;font-family:monospace;border:1px solid var(--gr)">'+k+'</span><span style="font-size:12px">'+d+'</span></div></div>').join('')+'</div>'+
-    '<div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';}
+function HELPH(){const S=[['/',  '検索フォーカス'],['Esc','パネルを閉じる'],['T','テーブルビュー'],['K','かんばんビュー'],['D','今日ビュー'],['N','企業を追加'],['M','自分のみ表示/解除']];return '<div class="ph"><div class="pht">ショートカット</div><button class="xb" onclick="cls()">×</button></div><div class="pb">'+S.map(([k,d])=>'<div class="gi"><div style="display:flex;align-items:center;gap:10px"><span style="background:var(--bg);padding:3px 10px;border-radius:5px;font-weight:700;font-size:13px;font-family:monospace;border:1px solid var(--gr)">'+k+'</span><span style="font-size:12px">'+d+'</span></div></div>').join('')+'</div><div class="pf"><button class="bp" onclick="cls()">閉じる</button></div>';}
 
 function ADDH(id){
   const c=id?D.find(x=>x.id===id):null;
   const checks=['HPが英語対応','海外に工場・拠点あり','CSR・SDGs取り組みあり','外国籍社員・留学生採用','設立3年以上・従業員20名以上'];
-  const cH=checks.map((ch,i)=>'<div class="chi'+(c&&i<c.sc?' on':'')+'" onclick="tck(this)"><span class="chk">'+(c&&i<c.sc?'✓':'')+'</span>'+ch+'</div>').join('');
+  const cH=checks.map((ch,i)=>'<div class="chi'+(c&&i<c.sc?' on':'')+'" onclick="tck(this)"><span class="chk">'+(c&&i<c.sc?'済':'')+'</span>'+ch+'</div>').join('');
   const db=c?'<button class="bdel" onclick="delC('+id+');cls()">削除</button>':'';
-  return '<div class="ph"><div class="pht">'+(c?'企業を編集':'企業を追加')+'</div><button class="xb" onclick="cls()">✕</button></div>'+
-    '<div class="pb">'+
-    '<div><div class="fl">企業名 *</div><input class="fi" id="fn" value="'+(c?c.name||'':'')+'" placeholder="株式会社○○"/></div>'+
-    '<div><div class="fl">URL</div><input class="fi" id="fu" value="'+(c?c.url||'':'')+'" placeholder="https://example.co.jp"/></div>'+
-    '<div><div class="fl">業種</div><select class="fsel" id="fi2">'+IND.map(v=>'<option'+(c&&c.ind===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div>'+
-    '<div><div class="fl">担当者</div><select class="fsel" id="fa2">'+AS.map(v=>'<option'+(c&&c.asgn===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div>'+
-    '<div><div class="fl">スクリーニング軸</div><div id="cl">'+cH+'</div>'+
-    '<div class="srow"><span style="font-size:11px;opacity:.6">整合性スコア</span><span style="font-size:12px;font-weight:700" id="sv">'+(c?c.sc:0)+' / 5</span></div>'+
-    '<div class="sbar"><div class="sfil" id="sf" style="width:'+(c?c.sc/5*100:0)+'%"></div></div></div>'+
-    '<div><div class="fl">アポ判断</div><select class="fsel" id="fap2">'+AP.map(v=>'<option'+(c&&c.apo===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div>'+
-    '<div><div class="fl">ステータス</div><select class="fsel" id="fst2">'+ST.map(v=>'<option'+(c&&c.st===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div>'+
-    '<div><div class="fl">メモ</div><input class="fi" id="fm2" value="'+(c?c.memo||'':'')+'" placeholder="気になる点など"/></div>'+
-    '</div><div class="pf">'+db+'<button class="bs" onclick="cls()">キャンセル</button><button class="bp" onclick="save('+(id||'null')+')">保存</button></div>';
+  const asgnopts=assignees.map(a=>'<option'+(c&&c.asgn===a.name?' selected':'')+'>'+a.name+'</option>').join('');
+  return '<div class="ph"><div class="pht">'+(c?'企業を編集':'企業を追加')+'</div><button class="xb" onclick="cls()">×</button></div><div class="pb"><div><div class="fl">企業名 *</div><input class="fi" id="fn" value="'+(c?c.name||'':'')+'" placeholder="株式会社○○"/></div><div><div class="fl">URL</div><input class="fi" id="fu" value="'+(c?c.url||'':'')+'" placeholder="https://example.co.jp"/></div><div><div class="fl">業種</div><select class="fsel" id="fi2">'+IND.map(v=>'<option'+(c&&c.ind===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div><div><div class="fl">担当者</div><select class="fsel" id="fa2">'+asgnopts+'</select></div><div><div class="fl">スクリーニング軸</div><div id="cl">'+cH+'</div><div class="srow"><span style="font-size:11px;opacity:.6">整合性スコア</span><span style="font-size:12px;font-weight:700" id="sv">'+(c?c.sc:0)+' / 5</span></div><div class="sbar"><div class="sfil" id="sf" style="width:'+(c?c.sc/5*100:0)+'%"></div></div></div><div><div class="fl">アポ判断</div><select class="fsel" id="fap2">'+AP.map(v=>'<option'+(c&&c.apo===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div><div><div class="fl">ステータス</div><select class="fsel" id="fst2">'+ST.map(v=>'<option'+(c&&c.st===v?' selected':'')+'>'+v+'</option>').join('')+'</select></div><div><div class="fl">メモ</div><input class="fi" id="fm2" value="'+(c?c.memo||'':'')+'" placeholder="気になる点など"/></div></div><div class="pf">'+db+'<button class="bs" onclick="cls()">キャンセル</button><button class="bp" onclick="save('+(id||'null')+')">保存</button></div>';
 }
-function save(id){
-  const name=document.getElementById('fn').value.trim();
-  if(!name){document.getElementById('fn').style.outline='2px solid var(--r)';return;}
-  const sc=document.querySelectorAll('#cl .chi.on').length,now=new Date().toISOString().slice(0,10);
-  if(id&&id!=='null'){const c=D.find(x=>x.id===id);if(c){c.name=name;c.ind=document.getElementById('fi2').value;c.url=document.getElementById('fu').value;c.asgn=document.getElementById('fa2').value;c.sc=sc;c.apo=document.getElementById('fap2').value;c.st=document.getElementById('fst2').value;c.memo=document.getElementById('fm2').value;}cls();rdr();toast(name+' を更新しました');}
-  else{D.unshift({id:nid++,name,ind:document.getElementById('fi2').value,url:document.getElementById('fu').value,asgn:document.getElementById('fa2').value,sc,apo:document.getElementById('fap2').value,st:document.getElementById('fst2').value||'未着手',k:0,at:now,fd:null,memo:document.getElementById('fm2').value});cls();rdr();toast(name+' を追加しました');}
-}
+function save(id){const name=document.getElementById('fn').value.trim();if(!name){document.getElementById('fn').style.outline='2px solid var(--r)';return;}const sc=document.querySelectorAll('#cl .chi.on').length,now=new Date().toISOString().slice(0,10);if(id&&id!=='null'){const c=D.find(x=>x.id===id);if(c){c.name=name;c.ind=document.getElementById('fi2').value;c.url=document.getElementById('fu').value;c.asgn=document.getElementById('fa2').value;c.sc=sc;c.apo=document.getElementById('fap2').value;c.st=document.getElementById('fst2').value;c.memo=document.getElementById('fm2').value;}cls();rdr();toast(name+' を更新しました');}else{D.unshift({id:nid++,name,ind:document.getElementById('fi2').value,url:document.getElementById('fu').value,asgn:document.getElementById('fa2').value||assignees[0]?.name||'',sc,apo:document.getElementById('fap2').value,st:document.getElementById('fst2').value||'未着手',k:0,at:now,fd:null,memo:document.getElementById('fm2').value});cls();rdr();toast(name+' を追加しました');}}
 function tck(el){el.classList.toggle('on');const n=document.querySelectorAll('#cl .chi.on').length;document.getElementById('sv').textContent=n+' / 5';document.getElementById('sf').style.width=(n/5*100)+'%';}
 
 function opn(mode,id){
   const pnl=document.getElementById('pnl');
-  if(mode==='add'||mode==='edit')pnl.innerHTML=ADDH(id);
+  if(mode==='settings')pnl.innerHTML=SETTINGSH(typeof id==='number'?id:0);
+  else if(mode==='add'||mode==='edit')pnl.innerHTML=ADDH(id);
   else if(mode==='tpl'){pnl.innerHTML=TPLH(id);document.getElementById('ov').style.display='block';pnl.classList.add('open');utpl();return;}
   else if(mode==='script')pnl.innerHTML=SCPH();
   else if(mode==='gls')pnl.innerHTML=GLSH();
@@ -628,21 +514,11 @@ function opn(mode,id){
   document.getElementById('ov').style.display='block';pnl.classList.add('open');
 }
 function cls(){document.getElementById('ov').style.display='none';document.getElementById('pnl').classList.remove('open');}
-
 function toast(msg){const tc=document.getElementById('tc'),t=document.createElement('div');t.className='toast';t.textContent=msg;tc.appendChild(t);requestAnimationFrame(()=>requestAnimationFrame(()=>t.classList.add('on')));setTimeout(()=>{t.classList.remove('on');setTimeout(()=>t.remove(),220);},2500);}
 
-document.addEventListener('keydown',e=>{
-  const inInput=['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName);
-  if(e.key==='Escape'){cls();return;}
-  if(e.key==='/'&&!inInput){e.preventDefault();document.getElementById('srch').focus();return;}
-  if(inInput)return;
-  if(e.key==='t'||e.key==='T')setVm('table');
-  if(e.key==='k'||e.key==='K')setVm('kanban');
-  if(e.key==='d'||e.key==='D')setVm('today');
-  if(e.key==='n'||e.key==='N'){e.preventDefault();opn('add',null);}
-  if(e.key==='m'||e.key==='M')toggleMe();
-});
-rdr();
+document.addEventListener('keydown',e=>{const inp=['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName);if(e.key==='Escape'){cls();return;}if(e.key==='/'&&!inp){e.preventDefault();document.getElementById('srch').focus();return;}if(inp)return;if(e.key==='t'||e.key==='T')setVm('table');if(e.key==='k'||e.key==='K')setVm('kanban');if(e.key==='d'||e.key==='D')setVm('today');if(e.key==='n'||e.key==='N'){e.preventDefault();opn('add',null);}if(e.key==='m'||e.key==='M')toggleMe();});
+
+loadS();buildSels();rdr();
 </script>
 </body>
 </html>
